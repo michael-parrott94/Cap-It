@@ -16,7 +16,7 @@
 													margin-left:320px; 
 													margin-top:0px;">
 			<div class="link_link" id="menu_0" style="text-align:right">
-				<a href="http://cap-it.herokuapp.com/" target="" name="benhulse"  style="color:white">New Game</a>
+				<a href="http://cap-it.herokuapp.com/CaptionItPage.html" target="" name="benhulse"  style="color:white">New Game</a>
 			</div>										
 			<div class="link_link" id="menu_1" style="text-align:right">
 				<a href="http://benhulse.com/filter/design" target="" name="benhulse"  style="color:white">Home</a>
