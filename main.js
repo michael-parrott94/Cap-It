@@ -56,8 +56,9 @@ function myLooper()
 				$("#p" + i + " #name").hide().fadeIn(4000);
 				$("#p" + i + " img").hide().fadeIn(4000);
 			}
-			$("#p0 #caption").text("======ADMIN======");
+
 		}
+		$("#p0 #caption").text("======ADMIN======"); //caption for the admin
 	});
 }
 
