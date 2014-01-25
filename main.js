@@ -43,10 +43,12 @@ function Initialize() {
 				console.log("-----------------------");
 				console.log("AddUser Response: " + response);
 				
-				var looper = setInterval(myLooper, 5000);
+				
 			});
 		});
     });
+    
+    var looper = setInterval(myLooper, 5000);
 }
 
 function myLooper()
