@@ -36,10 +36,16 @@ window.fbAsyncInit = function() {
 			// window.alert(obj.src_big);
 			// showImage(obj.src_big, 300, 300, 'You look so cool!');
 		// });  
-		
 	// });
 }
  
+function loadProfilePic() {
+	FB.api('/me/picture?width=140&height=110', function(response) {
+		window.alert(response.data.url);
+		$("#pp0").attr("src",response.data.url);
+    });
+}
+
 function showImage(src, width, height, alt) {
     var img = document.createElement("img");
     img.src = src;
