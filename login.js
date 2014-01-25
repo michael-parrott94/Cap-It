@@ -29,7 +29,7 @@ window.fbAsyncInit = function() {
 		 var myVar = setInterval(function(){myTimer()},2000);
 		 function myTimer()
 		 {
-			showImage(response.data.src_big[i]);
+			showImage(response.data[i].src_big);
 			i++;
 			if(i == 10) clearInerval(myVar);
 		 }
