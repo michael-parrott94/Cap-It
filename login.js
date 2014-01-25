@@ -19,10 +19,13 @@ window.fbAsyncInit = function() {
 };
  
  function testAPI() {
-    window.alert("Welcome!  Fetching your information.... ");
     FB.api('/me', function(response) {
-      window.alert("WHAT UP!" + response.name + "!");
+      window.alert("WHAT UP! " + response.name + "!");
     });
+	
+	FB.api("/me/picture?width=180&height=180",  function(response) {
+        console.log(response.data.url);
+	});  
 }
  
 
