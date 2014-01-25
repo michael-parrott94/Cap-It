@@ -247,6 +247,7 @@
 		var caption;
 		$("input").keypress(function(){
   			caption = $("#user_caption").text();
+  			alert("Keypress");
 		});
 
 		var captionSubmitted = false;
