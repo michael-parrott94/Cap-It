@@ -11,7 +11,7 @@
     if(isset($_POST['caption']) && is_string($_POST['caption']))
     {
         // Get the user
-        $userID = int($_POST['user_id']);
+        $userID = intval($_POST['user_id']);
         
         if($_POST['caption'] == 'set')
         {
@@ -29,7 +29,7 @@
             $getCaptionQuery = 'SELECT caption_text FROM users WHERE user_id = $1';
             $getCaptionResult = pg_query_params($dbconn, $getCaptionQuery, array($userID));
             $row = pg_fetch_array($getCaptionResult);
-            echo $row['caption_text'];\
+            echo $row['caption_text'];
             
             
             
@@ -50,7 +50,7 @@
             // Add the group
             $groupAddQuery = 'INSERT INTO groups (group_id, user_id_1, user_id_2, user_id_3, user_id_4, picture_link) VALUES (DEFAULT, DEFAULT, $1, DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT)';
             $prepareAddQuery = pg_prepare($dbconn, 'add_group', $groupAddQuery);
-            $groupAddResult = pg_query($dbconn, "add_group", array($creatorID);
+            $groupAddResult = pg_query($dbconn, "add_group", array($creatorID));
             
             //Get the group ID of what we just inserted
             $groupIDQuery = "SELECT currval('group_id_seq')";
@@ -119,7 +119,7 @@
         // If they aren't already there.
         if($_POST['user'] == 'add')
         {
-            $userFBID = int($_POST['fb_id']);
+            $userFBID = intval($_POST['fb_id']);
             $userName = $_POST['fb_name'];
             $userPP = $_POST['fb_pp'];
             
@@ -129,7 +129,7 @@
             $checkUserResult = pg_execute($dbconn, "user_add", array($userFBID));
             
             $num = pg_fetch_array($checkUserResult);
-            if(int($num[0]) <= 0)
+            if(intval($num[0]) <= 0)
             {
                 $addUserQuery = 'INSERT INTO users (user_id, user_fb_id, caption_text, group_id) VALUES (DEFAULT, $1, DEFAULT, DEFAULT)';
                 $prepareAddUser = pg_prepare($dbconn, 'user_add_', $addUserQuery);
