@@ -15,9 +15,23 @@
         
         if($_POST['caption'] == 'set')
         {
+            // Get the caption text that the user wants to write and
+            // save it on the server
+            $captionText = $_POST['caption_text'];
+            
+            $updateCaptionQuery = 'UPDATE users COLUMN caption_text SET $1';
+            $prepareUpdateQuery = pg_prepare($dbconn, 'update_caption', $updateCaptionQuery);
+            $updateResult = pg_execute($dbconn, 'update_caption', array($captionText));
+            
         }
         else if($_POST['caption'] == 'get')
         {
+            $getCaptionQuery = 'SELECT caption_text FROM users WHERE user_id = $1';
+            $getCaptionResult = pg_query_params($dbconn, $getCaptionQuery, array($userID));
+            $row = pg_fetch_array($getCaptionResult);
+            echo $row['caption_text'];\
+            
+            
             
         }
     }
@@ -66,7 +80,7 @@
             
             $groupInfoQuery = 'SELECT * FROM groups WHERE group_id = $1';
             $prepareGroupInfoQuery = pg_prepare($dbconn, 'get_group_info', $groupInfoQuery);
-            $groupInfoResults = pg_execute($dbconn, 'get_group_info', array($groupID);
+            $groupInfoResults = pg_execute($dbconn, 'get_group_info', array($groupID));
             
             $row = pg_fetch_array($groupInfoResults);
             // user_id_(1-4) is location in indices 1-4
@@ -106,8 +120,8 @@
         if($_POST['user'] == 'add')
         {
             $userFBID = int($_POST['fb_id']);
-           // $userName = $_POST['fb_name'];
-           // $userPP = $_POST['fb_pp'];
+            $userName = $_POST['fb_name'];
+            $userPP = $_POST['fb_pp'];
             
             //Check if this user exists already.
             $checkUserQuery = 'SELECT COUNT(*) FROM users WHERE user_fb_id = $1';
