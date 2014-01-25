@@ -19,15 +19,32 @@ window.fbAsyncInit = function() {
 };
 
 function Initialize() {
+	var userId, userName, profilePic;
+	
 	FB.api('/me', function(response) {
-		$("#p0 #name").text(response.name);
+		userId = response.id;
+		userName = response.name;
+		$("#p0 #name").text(userName);
     });
 	
 	FB.api('/me/picture', function(response) {
-		$("#p0 img").attr("src",response.data.url);
+		profilePic = response.data.url;
+		$("#p0 img").attr("src", profilePic);
 		$("#p0 img").attr("height", "85px");
 		$("#p0 img").attr("width", "85px");
     });
+	
+	$.post("services.php",
+		{
+			user : "add",
+			fb_id : userId,
+			fb_name : userName,
+			fb_pp : userPicture
+		},function(response)
+		{
+			$("p").text(response);
+			console.log("AddUser Response: " + response);
+		});
 }
 
 (function(d){
