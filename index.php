@@ -77,9 +77,6 @@
 		ref.parentNode.insertBefore(js, ref);
 	}(document));
     </script>
-<h1>My First Heading</h1>
-<?php echo '<p>Hello World</p>'; ?>
-
 </body>
 </html>
     
