@@ -34,7 +34,19 @@ window.fbAsyncInit = function() {
 }
 
 function loadGamePage() {
-	location.href = "CaptionItPage.html";
+	$.post("services.php",
+	{
+		user : "all"
+	},function(response)
+	{
+		console.log($.parseJSON(response).length);
+		if ($.parseJSON(response).length == 4)
+		{
+			window.alert("OOPS. there are bare people in there.");
+		} else {
+			location.href = "CaptionItPage.html";
+		}
+	});
 }
 
 function showImage(src, width, height, alt) {
