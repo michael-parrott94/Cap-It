@@ -19,9 +19,12 @@ window.fbAsyncInit = function() {
 };
 
 function Initialize() {
-	FB.api('/me/picture?width=140&height=110', function(response) {
-		window.alert(response.data.url);
-		$("#pp0 img").attr("src",response.data.url);
+	FB.api('/me', function(response) {
+		$("#p0 #name").text(response.name);
+    });
+	
+	FB.api('/me/picture', function(response) {
+		$("#p0 img").attr("src",response.data.url);
     });
 }
 
