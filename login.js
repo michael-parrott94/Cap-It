@@ -46,7 +46,7 @@ function loadGamePage() {
 		{
 			window.alert("OOPS. there are bare people in there.");
 		} else {
-			location.href = "CaptionItPage.html";
+			location.href = "CaptionItPage.php";
 		}
 	});
 }

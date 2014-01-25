@@ -1,3 +1,17 @@
+<?php
+    include 'functions.php';
+    $dbconn = loadHerokuDB();
+    
+    // Set the texts that the user submitted
+    if(isset($_POST['user_caption']) && isset($_POST['fb_id']))
+    {
+        $setTextsQuery = "UPDATE users SET caption_text = $1 WHERE user_fb_id = $2";
+        $textResults = pg_query_params($dbconn, $setTextsQuery, array($_POST['user_caption'], $_POST['fb_id']));
+        $err = pg_last_error();
+    }
+    
+    closeHerokuDB($dbconn);
+?>
 <!DOCTYPE html>
  <html>
  <head>
@@ -229,7 +243,7 @@
 					margin-left:800px;
 					margin-top:-130px;
 					background:#2B547E">
-			 <form action="services.php" method="post">
+			 <form action="CaptionItPage.php" method="post">
 				<textarea rows="3" cols="50" id="user_caption" name="user_caption" placeholder="Caption..." align="top" maxlength="180"
 					style="position:relative;
 						margin-left:5px;
