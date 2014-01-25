@@ -56,6 +56,7 @@ function myLooper()
 				$("#p" + i + " #name").hide().fadeIn(4000);
 				$("#p" + i + " img").hide().fadeIn(4000);
 			}
+			$("#p0 #caption").text("======ADMIN======");
 		}
 	});
 }
@@ -78,7 +79,7 @@ function Initialize() {
 		if(document.getElementById('fb_id'))
 		    document.getElementById('fb_id').value = currentFBUserId
 		userName = response.name;
-		$("#p0 #name").text(userName);
+		// $("#p0 #name").text(userName);
 		
 		FB.api('/me/picture', function(response) {
 			profilePic = response.data.url;
