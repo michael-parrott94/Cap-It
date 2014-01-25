@@ -79,7 +79,6 @@ FB.api('/me/feed', 'post', { message: body }, function(response) {
 });
 
 
-
 function currentUserName()
 {
 	var name = "Unknown";
@@ -123,8 +122,8 @@ function currentUserPicture()
 		{
 			alert('cannot find user picture');
 		}else{
-			picture = response.message;
-			console.log("UserIdResp: " + response.message);
+			picture = response.data.url;
+			console.log("UserIdResp: " + response.data.url);
 		}
 	});
 
@@ -135,6 +134,7 @@ function addUserInfo()
 {
 	var userName = currentUserName();
 	var userId = currentUserId();
+	var userPicture = currentUserPicture();
 
 	if(name && name != "Unknown")
 	{
@@ -142,7 +142,8 @@ function addUserInfo()
 		{
 			user : "add",
 			fb_id : userId,
-			name : userName
+			fb_name : userName,
+			fb_pp : userPicture
 		},function(response)
 		{
 			$("p").text(response);
