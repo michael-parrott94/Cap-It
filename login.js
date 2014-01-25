@@ -23,7 +23,7 @@ window.fbAsyncInit = function() {
       window.alert("WHAT UP! " + response.name + "!");
     });
 	
-	FB.api("/me/photos",  function(JSON.parse(response)) {
+	FB.api("/me/photos",  function(response) {
 		$.each(response.images), function(idx, obj) {
 			console.log(obj.source);
 			// showImage(response.data.url, 500, 500, 'You look so cool!');
