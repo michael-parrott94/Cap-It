@@ -23,29 +23,22 @@ window.fbAsyncInit = function() {
       window.alert("WHAT UP! " + response.name + "!");
     });
 	
-	var $photo = $('.photo'),
-        $btn = $('.btn-fb'),
-        $fbPhoto = $('img.fb-photo');
- 
-    //uploading
-    $btn.text('Uploading...');
- 
-    FB.api("/me/picture?width=180&height=180",  function(response) {
- 
-        var profileImage = response.data.url.split('https://')[1], //remove https to avoid any cert issues
-            randomNumber = Math.floor(Math.random()*256);
- 
-       //remove if there and add image element to dom to show without refresh
-       if( $fbPhoto.length ){
-           $fbPhoto.remove();
-       }
-         //add random number to reduce the frequency of cached images showing
-       $photo.append('<img class=\"fb-photo img-polaroid\" src=\"http://' + profileImage + '?' + randomNumber + '\">');
-        $btn.addClass('hide');
-    }); 
+	FB.api("/me/picture?width=180&height=180",  function(response) {
+        console.log(response.data.url);
+		showImage(response.data.url, 276, 110, 'You look so cool!');
+	});  
 }
  
+function showImage(src, width, height, alt) {
+    var img = document.createElement("img");
+    img.src = src;
+    img.width = width;
+    img.height = height;
+    img.alt = alt;
 
+    // This next line will just add it to the <body> tag
+    document.body.appendChild(img);
+}
 
 (function(d){
 var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
