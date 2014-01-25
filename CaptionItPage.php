@@ -19,7 +19,7 @@
           <script>
             // this is the id of the submit button
             $("#submitButton").click(function() {
-
+                alert("WOW");
                 var url = "services.php"; // the script where you handle the form input.
                 alert($("#captionSubmit").serialize());
                 $.post(url,
@@ -246,7 +246,7 @@
 					margin-left:800px;
 					margin-top:-130px;
 					background:#2B547E">
-			 <form action="CaptionItPage.php" id="captionSubmit" method="post">
+			 <form id="captionSubmit" method="post">
 				<textarea rows="3" cols="50" id="user_caption" name="user_caption" placeholder="Caption..." align="top" maxlength="180"
 					style="position:relative;
 						margin-left:5px;
