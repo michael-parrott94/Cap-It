@@ -19,9 +19,8 @@ window.fbAsyncInit = function() {
 };
  
  function Initialize() {
-	var profilePic;
-	
     FB.api('/me', function(response) {
+		$("#menu_0").attr("style", "text-align:right");
 		window.alert("YO ! " + response.name + "!");
 		// $(document).ready(function(){
 			// $(".btn1").click(function(){
