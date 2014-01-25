@@ -21,7 +21,7 @@ window.fbAsyncInit = function() {
 function Initialize() {
 	FB.api('/me/picture?width=140&height=110', function(response) {
 		window.alert(response.data.url);
-		$("#pp0").attr("src",response.data.url);
+		$("#pp0 img").attr("src",response.data.url);
     });
 }
 

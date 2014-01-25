@@ -21,8 +21,8 @@ window.fbAsyncInit = function() {
  function Initialize() {
 	var profilePic;
 	
-    FB.api('/me/picture?width=140&height=110', function(response) {
-		window.alert("YO ! " + response.name + "!");
+    FB.api('/me', function(response) {
+		window.alert("YO ! " + response.name + "! Press Go to continue.");
 		$(document).ready(function(){
 			$(".btn1").click(function(){
 				location.href = "CaptionItPage.html";
