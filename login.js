@@ -24,6 +24,7 @@ window.fbAsyncInit = function() {
     });
 	
 	FB.api('/me/permissions', function(response) {
+		window.alert('getting permissions...');
     });
 
 	FB.api("/me/photos",  function(response) {
