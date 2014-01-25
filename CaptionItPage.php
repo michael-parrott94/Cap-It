@@ -244,12 +244,6 @@
 		</div>
 	</div>
 	<script>
-		var caption;
-		$("input").keypress(function(){
-  			caption = $("#user_caption").text();
-  			alert("Keypress");
-		});
-
 		var captionSubmitted = false;
         // this is the id of the submit button
         $("#submitButton").click(function() {
@@ -257,6 +251,7 @@
         	if(captionSubmitted == false)
         	{
 	            var url = "services.php"; // the script where you handle the form input.
+	            var caption = document.getElementById("#user_caption").value;
 
 	            console.log("XXXXXXXXXX:" + caption);
 	            if(!caption || caption == "")
@@ -272,7 +267,6 @@
                		});
                		captionSubmitted = true;
 	        	}
-	            
         	}
         	else
         	{
@@ -282,9 +276,6 @@
 
             return false; // avoid to execute the actual submit of the form.
         });
-
-
-
 
      </script>
  </body>
