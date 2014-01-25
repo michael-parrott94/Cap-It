@@ -1,17 +1,4 @@
-<?php
-    include 'functions.php';
-    $dbconn = loadHerokuDB();
-    
-    // Set the texts that the user submitted
-    if(isset($_POST['user_caption']) && isset($_POST['fb_id']))
-    {
-        $setTextsQuery = "UPDATE users SET caption_text = $1 WHERE user_fb_id = $2";
-        $textResults = pg_query_params($dbconn, $setTextsQuery, array($_POST['user_caption'], $_POST['fb_id']));
-        $err = pg_last_error();
-    }
-    
-    closeHerokuDB($dbconn);
-?>
+
 <!DOCTYPE html>
  <html>
  <head>
@@ -20,6 +7,23 @@
          <link rel="stylesheet" href="http://flip.hr/css/bootstrap.min.css">
          
          <link rel="stylesheet" href="styles.css">
+         
+         <script>
+            // this is the id of the submit button
+            $("#submitButton").click(function() {
+
+                var url = "services.php"; // the script where you handle the form input.
+
+                $.post(url,
+                   data: $("#captionSubmit").serialize(), // serializes the form's elements.
+                   success: function(data)
+                   {
+                   }
+                 });
+
+                return false; // avoid to execute the actual submit of the form.
+            });
+         </script>
  </head>
  
  <body style="background:#4C4646">
@@ -241,22 +245,19 @@
 					margin-left:800px;
 					margin-top:-130px;
 					background:#2B547E">
-			 <form action="CaptionItPage.php" method="post">
+			 <form action="CaptionItPage.php" id="captionSubmit" method="post">
 				<textarea rows="3" cols="50" id="user_caption" name="user_caption" placeholder="Caption..." align="top" maxlength="180"
 					style="position:relative;
 						margin-left:5px;
 						margin-top:5px;
 						height:110px;
 						width:360px"></textarea>
-				<input type="submit" value="submit"/>
+				<input type="submit" id="submitButton" value="submit"/>
 				<input type="hidden" id="fb_id" name="fb_id" value="" />
 			</form>
 			
 		</div>
 	</div>
-	<script>
-	    document.getElementById('fb_id').value = currentFBUserId;
-	</script>
  </body>
  </html>
  
