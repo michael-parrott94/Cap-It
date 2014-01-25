@@ -25,6 +25,8 @@ function Initialize() {
 		userId = response.id;
 		userName = response.name;
 		$("#p0 #name").text(userName);
+		console.log("userId: " + userId);
+		console.log("name: " + userName);
     });
 	
 	FB.api('/me/picture', function(response) {
@@ -32,6 +34,8 @@ function Initialize() {
 		$("#p0 img").attr("src", profilePic);
 		$("#p0 img").attr("height", "85px");
 		$("#p0 img").attr("width", "85px");
+		
+		console.log("profilePic: " + profilePic);
     });
 	
 	$.post("services.php",
@@ -42,10 +46,6 @@ function Initialize() {
 			fb_pp : profilePic
 		},function(response)
 		{
-			console.log("Adding...");
-			console.log("userId: " + userId);
-			console.log("name: " + userName);
-			console.log("profilePic: " + profilePic);
 			console.log("-----------------------");
 			console.log("AddUser Response: " + response);
 		});
