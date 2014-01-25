@@ -61,9 +61,7 @@ function myLooper()
 				$("#p" + i + " #name").hide().fadeIn(4000);
 				$("#p" + i + " img").hide().fadeIn(4000);
 			}
-
 		}
-		
 	});
 }
 
@@ -107,7 +105,7 @@ function Initialize() {
 		});
     });
     
-    var looper = setInterval(function(){myLooper()}, 5000);
+    var looper = setInterval(function(){myLooper()}, 2000);
 }
 
 
