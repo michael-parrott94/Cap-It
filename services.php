@@ -149,6 +149,17 @@
                 echo 'user exists';
             }
         }
+        else if($_POST['user'] == 'all')
+        {  
+            $getUsersQuery = 'SELECT * FROM users';
+            $usersResult = pg_query($dbconn, $getUsersQuery);
+            $results = array();
+            while($row = pg_fetch_array($usersResult))
+            {
+                $results[] = $row;
+            }
+            echo json_encode($results);
+        }
     }
     
     // Close the connection
