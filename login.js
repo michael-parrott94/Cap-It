@@ -25,24 +25,17 @@ window.fbAsyncInit = function() {
     });
 
 	FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3Dme%28%29%20ORDER%20BY%20created%20ASC%29%20LIMIT%2010',  function(response) {
-		 var i = 0;
-		 var myVar = setInterval(function(){myTimer()},2000);
-		 function myTimer()
-		 {
-			showImage(response.data[i].src_big, 300, 300, 'cool');
-			i++;
-			if(i == 10) clearInerval(myVar);
-		 }
-		 $(document).ready(function(){
+		$.each(response.data, function(idx, obj) {
+			console.log(obj.src_big);
+			window.alert(obj.src_big);
+			showImage(obj.src_big, 300, 300, 'You look so cool!');
+		});  
+		$(document).ready(function(){
 			$(".btn1").click(function(){
-				window.link.href = "CaptionItPage.html";
+				document.body.innerHTML = "CaptionItPage.html";
+				//window.link.href = "CaptionItPage.html";
 			});
 		});
-		 // $.each(response.data, function(idx, obj) {
-			// console.log(obj.src_big);
-			// window.alert(obj.src_big);
-			// showImage(obj.src_big, 300, 300, 'You look so cool!');
-		// });  
 	});
 }
  
