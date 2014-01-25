@@ -21,9 +21,18 @@
         return $results;
     }
     
-    function updateScore($db, $scoreIncrement)
+    function updateScore($db, $fb_id, $scoreIncrement)
     {
+        // Get the old score
+        $getScoreQuery = 'SELECT scores FROM users WHERE user_fb_id = $1';
+        $getScoreResult = pg_query_params($db, $getScoreQuery, array($fb_id));
+        $score = pg_fetch_array($getScoreResult);
+        $score = $score[0];
         
+        // Update the new score.
+        $score += $scoreIncrement;
+        $updateScoreQuery = 'UPDATE users SET scores = $1 WHERE user_fb_id = $2';
+        $updateScoreResult = pg_query_params($db, $updateScoreQuery, array($score, $fb_id));
     }
     
     function getUserIDByFBID($db, $FBID)
