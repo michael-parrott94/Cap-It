@@ -68,7 +68,6 @@ function startGame(parsedResponse)
 		var url = response.data[Math.floor((Math.random()*response.data.length - 1)+1)].src_big;
 		$("#bigPic").attr("src", url);
 	});
-	$("#p0").addClass("adminPlayer");
 }
 
 function Initialize() {
