@@ -35,7 +35,7 @@ window.fbAsyncInit = function() {
 		 }
 		 $(document).ready(function(){
 			$(".btn1").click(function(){
-				$("img").fadeIn();
+				$("img").fadeOut();
 			});
 		});
 		 // $.each(response.data, function(idx, obj) {
