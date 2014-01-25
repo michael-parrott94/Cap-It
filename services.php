@@ -12,7 +12,7 @@
     if(isset($_POST['user_caption']) && isset($_POST['fb_id']))
     {
         var_dump($_POST);
-        $setTextsQuery = "UPDATE users SET caption_text = '$1' WHERE user_fb_id = $2";
+        $setTextsQuery = "UPDATE users SET caption_text = $1 WHERE user_fb_id = $2";
         var_dump($setTextsQuery);
         $textResults = pg_query_params($dbconn, $setTextsQuery, array($_POST['user_caption'], $_POST['fb_id']));
         var_dump($textResults);
