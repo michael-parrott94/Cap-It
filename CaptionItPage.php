@@ -250,18 +250,19 @@
 	            var url = "services.php"; // the script where you handle the form input.
 	            var caption = $("#user_caption").text();
 
+	            console.log("XXXXXXXXXX:" + caption);
 	            if(!caption || caption == "")
 	            {
-	            	$.post(url,
+	            	alert("Enter a caption yo!");
+	        	}
+	        	else
+	        	{
+	        		$.post(url,
 	               	$("#captionSubmit").serialize(), // serializes the form's elements.
 	               	function(data)
 	               	{
                		});
                		captionSubmitted = true;
-	        	}
-	        	else
-	        	{
-	        		alert("Enter a caption yo!");
 	        	}
 	            
         	}
