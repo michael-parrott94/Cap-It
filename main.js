@@ -46,7 +46,7 @@ function myLooper()
 			for (var i = 0; i < parsedResponse.length; i++)
 			{
 				$("#p" + i + " #name").hide().fadeIn(4000);
-				$("#p" + i + " img").hide.fadeIn(4000);
+				$("#p" + i + " img").hide().fadeIn(4000);
 			}
 		}
 	});
