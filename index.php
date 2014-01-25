@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
+<title>TESTING</title>
 <body>
-	
 	<div id="fb-root"></div>
     <script>
       window.fbAsyncInit = function() {
@@ -21,8 +21,7 @@
        }(document, 'script', 'facebook-jssdk'));
     </script>
 <h1>My First Heading</h1>
-
-<p>My first paragraph.</p>
+<?php echo '<p>Hello World</p>'; ?>
 
 </body>
 </html>
