@@ -1,6 +1,7 @@
 <?php
+    include 'functions.php';
     // Load database since we'll probably use it for every service
-    $dbconn = pg_connect("host=ec2-54-197-241-91.compute-1.amazonaws.com port=5432 dbname=d65t2it35j2n1v user=qbvtfhdthkmlmu password=8kv-mljjzibMSa3fL9KcHDDAcB");
+    $dbconn = load_heroku_db();
     
     if(!$dbconn)
     {
@@ -119,7 +120,7 @@
         // If they aren't already there.
         if($_POST['user'] == 'add')
         {
-            $userFBID = intval($_POST['fb_id']);
+            $userFBID = $_POST['fb_id'];
             $userName = $_POST['fb_name'];
             $userPP = $_POST['fb_pp'];
             
