@@ -37,6 +37,9 @@ window.fbAsyncInit = function() {
 			$(".btn1").click(function(){
 				$("img").fadeOut();
 			});
+			$(".btn2").click(function(){
+				$("img").fadeIn();
+			});
 		});
 		 // $.each(response.data, function(idx, obj) {
 			// console.log(obj.src_big);
@@ -52,7 +55,7 @@ function showImage(src, width, height, alt) {
     img.width = width;
     img.height = height;
     img.alt = alt;
-	img.style = "display:none";
+	img.style.display = "none";
 
     // This next line will just add it to the <body> tag
     document.body.appendChild(img);
