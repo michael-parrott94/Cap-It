@@ -1,14 +1,3 @@
-<html>
-<head>
-	<title>Test123</title>
-
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-</head>
-
-<body>
-<div id="fb-root"></div>
-<script>
-
 $(document).ready(function(){
   // Load the SDK asynchronously
   (function(d){
@@ -48,6 +37,8 @@ $(document).ready(function(){
       // result from direct interaction from people using the app (such as a mouse click)
       // (2) it is a bad experience to be continually prompted to login upon page load.
       FB.login(function() {}, {scope: 'email, publish_actions'});
+
+      $("p").html("User Prompted Login");
     } else {
       // In this case, the person is not logged into Facebook, so we call the login() 
       // function to prompt them to do so. Note that at this stage there is no indication
@@ -55,12 +46,10 @@ $(document).ready(function(){
       // dialog right after they log in to Facebook. 
       // The same caveats as above apply to the FB.login() call here.
       FB.login(function() {}, {scope: 'email, publish_actions'});
+      $("p").html("User Prompted Login");
     }
   });
   
-
-  
-
   // Here we run a very simple test of the Graph API after login is successful. 
   // This testAPI() function is only called in those cases. 
   function testAPI() {
@@ -85,16 +74,70 @@ FB.api('/me/feed', 'post', { message: body }, function(response) {
 });
 });
 
-</script>
 
-<!--
-  Below we include the Login Button social plugin. This button uses the JavaScript SDK to
-  present a graphical Login button that triggers the FB.login() function when clicked. -->
+function currentUserName()
+{
+	var name = "Unknown";
 
-<fb:login-button show-faces="true" width="200" max-rows="1"></fb:login-button>
+	FB.api('/me', {fields: 'name'}, function(response){
+		if(!response || response.error)
+		{
+			alert('cannot find user name');
+		}else{
+			name = response;
+			console.log(response.id);
+		}
+	});
+
+	return name;
+}	
+
+function currentUserId()
+{
+	var userId = 0;
+
+	FBapi('/me', {fields: 'id'}, function(response){
+		if(!response || response.error)
+		{
+			alert('cannot find user id');
+		}else{
+			name = response;
+			console.log(response.id);
+		}
+	});
+
+}
 
 
-<button id="postButton">Post Message</button>
+function addUserInfo()
+{
+	var userName = currentUserName();
+	var userId = currentUserId();
+
+	if(name && name != "Unknown")
+	{
+		$.post("services.php",
+		{
+			user : "add";
+			fb_id : userId;
+			name : userName;
+		});
+	}
+}
+
+
+$("#storeName").click(function(){
+
+	addUserInfo();
+
+})
+
+
+
+
+
+
+});
 
 
 
@@ -110,16 +153,3 @@ FB.api('/me/feed', 'post', { message: body }, function(response) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>
