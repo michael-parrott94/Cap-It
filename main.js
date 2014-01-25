@@ -21,6 +21,15 @@ window.fbAsyncInit = function() {
 function Initialize() {
 	var userId, userName, profilePic;
 	
+	$.post("services.php",
+	{
+		user : "all"
+	},function(response)
+	{
+		if (response.size == 4) 
+		console.log("Oops. The game is full!");
+	});
+	
 	FB.api('/me', function(response) {
 		userId = response.id;
 		userName = response.name;
