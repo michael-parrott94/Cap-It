@@ -25,6 +25,8 @@ function Initialize() {
 	
 	FB.api('/me/picture', function(response) {
 		$("#p0 img").attr("src",response.data.url);
+		$("#p0 img").attr("height", 85px);
+		$("#p0 img").attr("width", 85px);
     });
 }
 
