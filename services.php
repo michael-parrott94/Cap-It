@@ -1,7 +1,7 @@
 <?php
     include 'functions.php';
     // Load database since we'll probably use it for every service
-    $dbconn = load_heroku_db();
+    $dbconn = loadHerokuDB();
     
     if(!$dbconn)
     {
@@ -132,9 +132,9 @@
             $num = pg_fetch_array($checkUserResult);
             if(intval($num[0]) <= 0)
             {
-                $addUserQuery = 'INSERT INTO users (user_id, user_fb_id, caption_text, group_id) VALUES (DEFAULT, $1, DEFAULT, DEFAULT)';
+                $addUserQuery = 'INSERT INTO users (user_id, user_fb_id, caption_text, group_id, name, fb_pp) VALUES (DEFAULT, $1, DEFAULT, DEFAULT, $2, $3)';
                 $prepareAddUser = pg_prepare($dbconn, 'user_add_', $addUserQuery);
-                $addUserResult = pg_execute($dbconn, 'user_add_', array($userFBID));
+                $addUserResult = pg_execute($dbconn, 'user_add_', array($userFBID, $userName, $userPP));
                 
                 if($addUserResult == False)
                 {
@@ -152,17 +152,11 @@
         }
         else if($_POST['user'] == 'all')
         {  
-            $getUsersQuery = 'SELECT * FROM users';
-            $usersResult = pg_query($dbconn, $getUsersQuery);
-            $results = array();
-            while($row = pg_fetch_array($usersResult))
-            {
-                $results[] = $row;
-            }
+            $results = getUsersData();
             echo json_encode($results);
         }
     }
     
     // Close the connection
-    pg_close($dbconn);
+    closeHerokuDB($dbconn);
 ?>

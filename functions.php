@@ -1,10 +1,15 @@
 <?php
-    function load_heroku_db()
+    function loadHerokuDB()
     {
         return pg_connect("host=ec2-54-197-241-91.compute-1.amazonaws.com port=5432 dbname=d65t2it35j2n1v user=qbvtfhdthkmlmu password=8kv-mljjzibMSa3fL9KcHDDAcB");
     }
     
-    function get_users_data()
+    function closeHerokuDB($db)
+    {
+        pg_close($db);
+    }
+    
+    function getUsersData()
     {
         $getUsersQuery = 'SELECT * FROM users';
         $usersResult = pg_query($dbconn, $getUsersQuery);
@@ -13,5 +18,10 @@
         {
             $results[] = $row;
         }
+    }
+    
+    function updateScore($db, $scoreIncrement)
+    {
+        
     }
 ?>
