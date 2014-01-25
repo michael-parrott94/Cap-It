@@ -20,7 +20,7 @@
  <h1 style="margin-left:355px; margin-top:100px; color:white"><big><big><big>JUST CAP-IT DOE</big></big></big></h1>
  <div class="nav-container horizontal" style="margin-left:360px; margin-top: 0px">
 	<div class="link_link" id="menu_1" style="float:left">
-		<a href="http://benhulse.com/filter/design" target="" name="benhulse"  style="color:white">Home</a>
+		<a href="http://cap-it.herokuapp.com/" target="" name="benhulse"  style="color:white">Home</a>
 	</div>
 	<div class="link_link" id="menu_2" style="float:left;  margin-left: 10px">
 		<a href="http://benhulse.com/filter/design" target="" name="benhulse" style="color:white">View Previous</a>
