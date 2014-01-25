@@ -38,17 +38,17 @@ function myLooper()
 			startGame(parsedResponse);
 			gameStarted = true;
 		}		
-		if (parsedResponse = $.parseJSON(response) < 4 && gameStarted)
-		{
-			gameStarted = false;
-			for (var i = 3; i >= parsedResponse.length; i--)
-			{
-				$("#p" + i + " #name").hide();
-				$("#p" + i + " img").hide();
-				$("#p" + i + " p").hide();
-				$("#p" + i + " #score").hide();
-			}
-		}
+		// if (parsedResponse = $.parseJSON(response) < 4 && gameStarted)
+		// {
+			// gameStarted = false;
+			// for (var i = 3; i >= parsedResponse.length; i--)
+			// {
+				// $("#p" + i + " #name").hide();
+				// $("#p" + i + " img").hide();
+				// $("#p" + i + " p").hide();
+				// $("#p" + i + " #score").hide();
+			// }
+		// }
 		for (var i = 0; i < parsedResponse.length; i++)
 		{
 			$("#p" + i + " #name").text(parsedResponse[i].name); //name
