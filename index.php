@@ -44,7 +44,7 @@ function facebookLogin() {
 }
  
 function getProfileImage() {
- 
+    window.alert("WORKING!");
     var $photo = $('.photo'),
         $btn = $('.btn-fb'),
         $fbPhoto = $('img.fb-photo');
