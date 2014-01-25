@@ -25,4 +25,17 @@
     {
         
     }
+    
+    function getUserIDByFBID($db, $FBID)
+    {
+        //Check if this user exists already.
+        $checkUserQuery = 'SELECT user_id FROM users WHERE user_fb_id = $1';
+        $checkUserResult = pg_query_params($db, $checkUserQuery, array($userFBID));
+        
+        $num = pg_fetch_array($checkUserResult);
+        if(intval($num[0]) <= 0)
+        {
+            
+        }
+    }
 ?>
