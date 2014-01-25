@@ -39,7 +39,7 @@ $(document).ready(function()
       // result from direct interaction from people using the app (such as a mouse click)
       // (2) it is a bad experience to be continually prompted to login upon page load.
       FB.login(function() {}, {scope: 'email, publish_actions'});
-
+      $("p").html("<p><b>User Prompted Login</b></p>");
       
     } else {
       // In this case, the person is not logged into Facebook, so we call the login() 
@@ -48,7 +48,7 @@ $(document).ready(function()
       // dialog right after they log in to Facebook. 
       // The same caveats as above apply to the FB.login() call here.
       FB.login(function() {}, {scope: 'email, publish_actions'});
-      $("p").html("<p><b>User Prompted Login</b></p>");
+      
     }
   });
   
@@ -126,6 +126,10 @@ function addUserInfo()
 			user : "add",
 			fb_id : userId,
 			name : userName
+		},function(response)
+		{
+			$("p").text(response);
+			console.log("AddUser Response: " + response);
 		});
 	}
 }
