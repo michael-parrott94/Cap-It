@@ -47,27 +47,25 @@ function Initialize() {
 				console.log("profilePic: " + profilePic);
 				console.log("-----------------------");
 				console.log("AddUser Response: " + response);
-				
-				$.post("services.php",
-				{
-					user : "all",
-				},function(response1)
-				{
-					console.log("Grabbing all the user data in the looper.");
-					var parsedResponse = $.parseJSON(response1);
-					for (var i = 0; i < parsedResponse.length; i++)
-					{
-						$("#p" + i + " #name").text(parsedResponse[i].name);
-						$("#p" + i + " img").attr("src", parsedResponse[i].fb_pp);
-						$("#p" + i + " img").attr("height", "85px");
-						$("#p" + i + " img").attr("width", "85px");
-					}
-				});
 			});
 		});
     });
 	
-	
+	$.post("services.php",
+	{
+		user : "all",
+	},function(response1)
+	{
+		console.log("Grabbing all the user data in the looper.");
+		var parsedResponse = $.parseJSON(response1);
+		for (var i = 0; i < parsedResponse.length; i++)
+		{
+			$("#p" + i + " #name").text(parsedResponse[i].name);
+			$("#p" + i + " img").attr("src", parsedResponse[i].fb_pp);
+			$("#p" + i + " img").attr("height", "85px");
+			$("#p" + i + " img").attr("width", "85px");
+		}
+	});
 }
 
 function myLooper()
