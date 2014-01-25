@@ -57,8 +57,8 @@ function Initialize() {
 
 	FB.api('/me', function(response) {
 		userId = currentFBUserId = response.id;
-		if(document.getElementById('hiddenField'))
-		    document.getElementById('hiddenField').value = currentFBUserId
+		if(document.getElementById('fb_id'))
+		    document.getElementById('fb_id').value = currentFBUserId
 		userName = response.name;
 		$("#p0 #name").text(userName);
 		
