@@ -59,7 +59,7 @@
 				vertical-align: middle;
 				border:1px solid #000;
 				background:BLACK">
-				<img src="http://lh4.googleusercontent.com/-kv1TRBt5NEs/UVvFBq4GmhI/AAAAAAAATm4/dub87sWVnFY/I/v3%25257Camused%25257C_img%25257Ct-rex-making-bed.jpg">
+				<img id="bigPic">
 		</div>
 		<div class="container player" id="p0"
 			style="width:385px;
