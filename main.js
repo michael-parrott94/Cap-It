@@ -51,18 +51,18 @@ function myLooper()
 		}
 		for (var i = 0; i < parsedResponse.length; i++)
 		{
-			$("#p" + i + " #name").text(parsedResponse[i].name); //name
+			$("#p" + i + " #name").text(parsedResponse[i].name).show(); //name
 			//profile pic
-			$("#p" + i + " img").attr("src", parsedResponse[i].fb_pp);
+			$("#p" + i + " img").attr("src", parsedResponse[i].fb_pp).show();
 			$("#p" + i + " img").attr("height", "85px");
 			$("#p" + i + " img").attr("width", "85px");
 			if (i == 0) 
 			{
-				$("#p" + i + " p").text("======ADMIN======"); //caption for the admin
+				$("#p" + i + " p").text("======ADMIN======").show(); //caption for the admin
 			} else {
-				$("#p" + i + " p").text(parsedResponse[i].caption_text);//caption
+				$("#p" + i + " p").text(parsedResponse[i].caption_text).show();//caption
 			}
-			$("#p" + i + " #score").text(parsedResponse[i].scores);//score
+			$("#p" + i + " #score").text(parsedResponse[i].scores).show();//score
 		}
 		if (isFirstTimeLoop)
 		{
