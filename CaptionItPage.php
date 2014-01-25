@@ -18,6 +18,8 @@
          <meta charset="utf-8">
          <title>CAP-IT</title>
          <link rel="stylesheet" href="http://flip.hr/css/bootstrap.min.css">
+         
+         <link rel="stylesheet" href="styles.css">
  </head>
  
  <body style="background:#4C4646">
@@ -59,14 +61,13 @@
 				background:BLACK">
 				<img src="http://lh4.googleusercontent.com/-kv1TRBt5NEs/UVvFBq4GmhI/AAAAAAAATm4/dub87sWVnFY/I/v3%25257Camused%25257C_img%25257Ct-rex-making-bed.jpg">
 		</div>
-		<div class="container" id="p0"
+		<div class="container player" id="p0"
 			style="width:385px;
 					height:96px;
 					position:relative;
 					float:left;
 					margin-left:800px;
-					margin-top:-570px;
-					background:#6D7B8D">
+					margin-top:-570px;">
 			<div class="container" 
 				style="position:relative;
 						width:85px;
@@ -103,14 +104,13 @@
 				<p id="score"></p>
 			</div>
 		</div>
-		<div class="container" id="p1"
+		<div class="container player" id="p1"
 			style="width:385px;
 					height:96px;
 					position:relative;
 					float:left;
 					margin-left:800px;
-					margin-top:-460px;
-					background:#6D7B8D">
+					margin-top:-460px;">
 			<div class="container"
 				style="position:relative;
 						width:85px;
@@ -147,14 +147,13 @@
 				<p id="score"></p>
 			</div>
 		</div>
-		<div class="container" id="p2"
+		<div class="container player" id="p2"
 			style="width:385px;
 					height:96px;
 					position:relative;
 					float:left;
 					margin-left:800px;
-					margin-top:-350px;
-					background:#6D7B8D">
+					margin-top:-350px;">
 			<div class="container" 
 				style="position:relative;
 						width:85px;
@@ -191,14 +190,13 @@
 				<p id="score"></p>
 			</div>
 		</div>
-		<div class="container" id="p3"
+		<div class="container player" id="p3"
 			style="width:385px;
 					height:96px;
 					position:relative;
 					float:left;
 					margin-left:800px;
-					margin-top:-240px;
-					background:#6D7B8D">
+					margin-top:-240px;">
 			<div class="container" 
 				style="position:relative;
 						width:85px;
