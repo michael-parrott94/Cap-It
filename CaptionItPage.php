@@ -23,8 +23,8 @@
                 var url = "services.php"; // the script where you handle the form input.
 
                 $.post(url,
-                   data: $("#captionSubmit").serialize(), // serializes the form's elements.
-                   success: function(data)
+                   $("#captionSubmit").serialize(), // serializes the form's elements.
+                   function(data)
                    {
                    });
 
