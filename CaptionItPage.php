@@ -241,12 +241,9 @@
 		</div>
 	</div>
 	<script>
-		var captionSubmitted = false;
         // this is the id of the submit button
         $("#submitButton").click(function() {
 
-        	if(captionSubmitted == false)
-        	{
 	            var url = "services.php"; // the script where you handle the form input.
 	            var caption = document.getElementById("#user_caption").value;
 
@@ -256,13 +253,6 @@
 	               	{
                		});
                		
-               		captionSubmitted = true;
-        	}
-        	else
-        	{
-        		alert("Already submitted caption");
-        	}
-
             return false; // avoid to execute the actual submit of the form.
         });
 
