@@ -100,7 +100,7 @@ function currentUserId()
 {
 	var userId = 0;
 
-	FBapi('/me', {fields: 'id'}, function(response){
+	FB.api('/me', {fields: 'id'}, function(response){
 		if(!response || response.error)
 		{
 			alert('cannot find user id');
