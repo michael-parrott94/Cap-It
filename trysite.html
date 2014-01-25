@@ -77,7 +77,7 @@ $("#postButton").click(function(){
 	var body = 'Trying Facebook JS SDK documentation';
 FB.api('/me/feed', 'post', { message: body }, function(response) {
   if (!response || response.error) {
-    alert('Error occured');
+    alert('Error occured', response.error);
   } else {
     alert('Post ID: ' + response.id);
   }
