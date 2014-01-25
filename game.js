@@ -158,6 +158,22 @@ $("#storeName").click(function(){
 });
 
 
+function retrieveUsers(playerNumber)
+{
+	var playerObj;
+
+	$.post("services.php",
+		{
+			user : "all",
+		},function(info){
+			var obj = jQuery.parseJSON( info );
+			playerObj = obj[playerNumber-1];
+		}
+
+	return playerObj;
+}
+
+
 ///////////////////////////////////
 //After starting the Game//
 ///////////////////////////////////
