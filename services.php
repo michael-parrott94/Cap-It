@@ -16,6 +16,8 @@
         var_dump($setTextsQuery);
         $textResults = pg_query_params($dbconn, $setTextsQuery, array($_POST['user_caption'], $_POST['fb_id']));
         var_dump($textResults);
+        $err = pg_last_error();
+        var_dump($err);
     }
     
     // Caption actions
