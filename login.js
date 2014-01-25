@@ -28,7 +28,7 @@ window.fbAsyncInit = function() {
 			 console.log(obj.source);
 			 showImage(response.data.url, 500, 500, 'You look so cool!');
 		});  
-	}
+	});
 }
  
 function showImage(src, width, height, alt) {
