@@ -8,9 +8,11 @@
     <script>
      window.fbAsyncInit = function() {
         FB.init({
-          appId      : '1401062393477841',
-          status     : true,
-          xfbml      : true
+			appId      : '1401062393477841',
+			channelUrl: '//cap-it.herokuapp.com/channel.html', // Channel File
+			status: true, // check login status
+			cookie: true, // enable cookies to allow the server to access the session
+			xfbml: true // parse XFBML
         });
     };
 
@@ -39,14 +41,41 @@
 		}); 
 	}	
 
-	  
-    (function(d, s, id){
-		var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) {return;}
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js";
-        fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
+	function getProfileImage() {
+		var $photo = $('.photo'),
+			$btn = $('.btn-fb'),
+			$fbPhoto = $('img.fb-photo');
+	 
+		//uploading
+		$btn.text('Uploading...');
+	 
+		FB.api("/me/picture?width=180&height=180",  function(response) {
+	 
+			var profileImage = response.data.url.split('https://')[1], //remove https to avoid any cert issues
+				randomNumber = Math.floor(Math.random()*256);
+	 
+		   //remove if there and add image element to dom to show without refresh
+		   if( $fbPhoto.length ){
+			   $fbPhoto.remove();
+		   }
+			 //add random number to reduce the frequency of cached images showing
+		   $photo.append('<img class=\"fb-photo img-polaroid\" src=\"http://' + profileImage + '?' + randomNumber + '\">');
+			$btn.addClass('hide');
+		}); 
+	}
+
+    // Load the SDK Asynchronously
+	(function (d) {
+		var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+		if (d.getElementById(id)) {
+			return;
+		}
+		js = d.createElement('script');
+		js.id = id;
+		js.async = true;
+		js.src = "//connect.facebook.net/en_US/all.js";
+		ref.parentNode.insertBefore(js, ref);
+	}(document));
     </script>
 <h1>My First Heading</h1>
 <?php echo '<p>Hello World</p>'; ?>
