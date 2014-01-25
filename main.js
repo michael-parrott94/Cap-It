@@ -27,7 +27,17 @@ function Initialize() {
 	},function(response)
 	{
 		console.log("Grabbing all the user data in the looper.");
+		var paredResponse = $.parseJSON(response);
+		for (var i = 0; i < paredResponse.length; i++)
+		{
+			$("p" + i + " #name").text(paredResponse[i].name);
+			$("p" + i + " img").attr("srs", fb_pp);
+			$("p" + i + " img").attr("height", "85px");
+			$("p" + i + " img").attr("width", "85px");
+		}
 	});
+	
+	debugger; 
 	
 	//var looper = setInterval(function() { myLooper() }, 5000);
 
