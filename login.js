@@ -24,7 +24,7 @@ window.fbAsyncInit = function() {
     });
 	
 	FB.api("/me/photos",  function(response) {
-		 $.each(response.images), function(idx, obj) {
+		 $.each(response.images, function(idx, obj) {
 			 console.log(obj.source);
 			 showImage(response.data.url, 500, 500, 'You look so cool!');
 		}
