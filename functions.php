@@ -18,6 +18,7 @@
         {
             $results[] = $row;
         }
+        return $results;
     }
     
     function updateScore($db, $scoreIncrement)
