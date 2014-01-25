@@ -25,7 +25,7 @@
 				<a href="http://benhulse.com/filter/design" target="" name="benhulse" style="color:white;">View Previous</a>
 			</div>
 			<div class="link_link" id="menu_3" style="text-align:right; display:none;">
-				<a href="http://benhulse.com/filter/design" target="" name="benhulse"  style="color:white;">About Cap-It</a>
+				<a href="http://cap-it.herokuapp.com/About.html" target="" name="benhulse"  style="color:white;">About Cap-It</a>
 			</div>
 		</div>
 		<big><big><p style="color:WHITE;

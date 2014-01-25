@@ -62,11 +62,13 @@ function myLooper()
 
 function startGame(parsedResponse)
 {
+	console.log("starting game...");
 	admin = parsedResponse[0].user_fb_id;
 	FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3D' + admin + '%20ORDER%20BY%20created%20ASC%29%20LIMIT%20100',  function(response) {
-		var url = $.parseJSON(response).data[Math.floor((Math.random()*100)+1)].src_big;
+		var url = response.data[Math.floor((Math.random()*response.data.length - 1)+1)].src_big;
 		$("#bigPic").attr("src", url);
 	});
+	$("#p0").addClass("adminPlayer");
 }
 
 function Initialize() {
