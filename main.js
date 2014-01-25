@@ -1,4 +1,5 @@
 var currentFBUserId = 0;
+var isFirstTimeLoop = true;
 
 window.fbAsyncInit = function() {
 	FB.init({
@@ -38,6 +39,15 @@ function myLooper()
 			$("#p" + i + " img").attr("width", "85px");
 			$("#p" + i + " p").text(parsedResponse[i].caption_text);//caption
 			$("#p" + i + " #score").text(parsedResponse[i].scores);//score
+		}
+		if (isFirstTimeLoop)
+		{
+			isFirstTimeLoop = false;
+			for (var i = 0; i < parsedResponse.length; i++)
+			{
+				$("#p" + i + " #name").fadeIn();
+				$("#p" + i + " img").fadeIn();
+			}
 		}
 	});
 }
