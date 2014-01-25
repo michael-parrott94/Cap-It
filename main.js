@@ -21,6 +21,16 @@ window.fbAsyncInit = function() {
 function Initialize() {
 	var userId, userName, profilePic;
 	
+	$.post("services.php",
+	{
+		user : "all",
+	},function(response)
+	{
+		console.log("Grabbing all the user data in the looper.");
+	});
+	
+	//var looper = setInterval(function() { myLooper() }, 5000);
+
 	FB.api('/me', function(response) {
 		userId = response.id;
 		userName = response.name;
@@ -48,6 +58,17 @@ function Initialize() {
 			});
 		});
     });
+}
+
+function myLooper()
+{
+	$.post("services.php",
+	{
+		user : "all",
+	},function(response)
+	{
+		console.log("Grabbing all the user data in the looper.");
+	});
 }
 
 (function(d){
