@@ -32,7 +32,7 @@ window.fbAsyncInit = function() {
 		});  
 		$(document).ready(function(){
 			$(".btn1").click(function(){
-				window.link.href = "CaptionItPage.html";
+				location.href = "CaptionItPage.html";
 			});
 		});
 	});
