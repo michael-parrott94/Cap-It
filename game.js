@@ -111,8 +111,25 @@ function currentUserId()
 		}
 	});
 
+	return id;
 }
 
+function currentUserPicture()
+{
+	var picture;
+
+	FB.api('/me/picture', function(response){
+		if(!response || response.error)
+		{
+			alert('cannot find user picture');
+		}else{
+			name = response.message;
+			console.log("UserIdResp: " + response.message);
+		}
+	});
+
+	return picture;
+}
 
 function addUserInfo()
 {
@@ -138,6 +155,11 @@ function addUserInfo()
 $("#storeName").click(function(){
 	addUserInfo();
 });
+
+
+///////////////////////////////////
+//After starting the Game//
+///////////////////////////////////
 
 
 
