@@ -152,7 +152,7 @@
         }
         else if($_POST['user'] == 'all')
         {  
-            $results = getUsersData();
+            $results = getUsersData($dbconn);
             echo json_encode($results);
         }
     }

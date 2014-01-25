@@ -9,10 +9,10 @@
         pg_close($db);
     }
     
-    function getUsersData()
+    function getUsersData($db)
     {
         $getUsersQuery = 'SELECT * FROM users';
-        $usersResult = pg_query($dbconn, $getUsersQuery);
+        $usersResult = pg_query($db, $getUsersQuery);
         $results = array();
         while($row = pg_fetch_array($usersResult))
         {
