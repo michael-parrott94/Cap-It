@@ -111,7 +111,7 @@ function currentUserId()
 		}
 	});
 
-	return id;
+	return userId;
 }
 
 function currentUserPicture()
@@ -123,7 +123,7 @@ function currentUserPicture()
 		{
 			alert('cannot find user picture');
 		}else{
-			name = response.message;
+			picture = response.message;
 			console.log("UserIdResp: " + response.message);
 		}
 	});
