@@ -20,7 +20,7 @@ window.fbAsyncInit = function() {
 
 function Initialize() {
 	FB.api('/me', function(response) {
-		$("#p0 #name").text(response.name);
+		$("#p0 font").text(response.name);
     });
 	
 	FB.api('/me/picture', function(response) {
