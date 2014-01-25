@@ -11,7 +11,15 @@
     if(isset($_POST['caption']) && is_string($_POST['caption']))
     {
         // Get the user
+        $userID = int($_POST['user_id']);
         
+        if($_POST['caption'] == 'set')
+        {
+        }
+        else if($_POST['caption'] == 'get')
+        {
+            
+        }
     }
     
     // Group actions
@@ -54,9 +62,11 @@
             $prepareGroupIDQuery = pg_prepare($dbconn, 'get_group_id', $getGroupIdQuery);
             $groupIDResult = pg_execute($dbconn, 'get_group_id', $prepareGroupIDQuery);
             
+            
+            
             $groupInfoQuery = 'SELECT * FROM groups WHERE group_id = $1';
             $prepareGroupInfoQuery = pg_prepare($dbconn, 'get_group_info', $groupInfoQuery);
-            $groupInfoResults = pg_execute($dbConn, 'get_group_info', $prepareGroupInfoQuery);
+            $groupInfoResults = pg_execute($dbconn, 'get_group_info', array($groupID);
             
             $row = pg_fetch_array($groupInfoResults);
             // user_id_(1-4) is location in indices 1-4
@@ -64,7 +74,12 @@
             {
                 if($row[$i] != -1)
                 {
+                    //Found an empty slot, add the user here
+                    $addUserQuery = 'UPDATE groups SET user_id_' . $i . ' WHERE group_id = $1';
+                    $prepareAddUserQuery = pg_prepare($dbconn, 'add_user_group', $addUserQuery);
+                    $addUserResults = pg_execute($dbconn, 'add_user_group', array($groupID));
                     
+                    break;
                 }
             }
             
@@ -91,6 +106,8 @@
         if($_POST['user'] == 'add')
         {
             $userFBID = int($_POST['fb_id']);
+           // $userName = $_POST['fb_name'];
+           // $userPP = $_POST['fb_pp'];
             
             //Check if this user exists already.
             $checkUserQuery = 'SELECT COUNT(*) FROM users WHERE user_fb_id = $1';
@@ -103,6 +120,19 @@
                 $addUserQuery = 'INSERT INTO users (user_id, user_fb_id, caption_text, group_id) VALUES (DEFAULT, $1, DEFAULT, DEFAULT)';
                 $prepareAddUser = pg_prepare($dbconn, 'user_add_', $addUserQuery);
                 $addUserResult = pg_execute($dbconn, 'user_add_', array($userFBID));
+                
+                if($addUserResult === False)
+                {
+                    echo 'user addition failed';
+                }
+                else
+                {
+                    echo 'user added';
+                }
+            }
+            else
+            {
+                echo 'user exists';
             }
         }
     }
