@@ -35,10 +35,7 @@ window.fbAsyncInit = function() {
 		 }
 		 $(document).ready(function(){
 			$(".btn1").click(function(){
-				$("img").fadeOut();
-			});
-			$(".btn2").click(function(){
-				$("img").fadeIn();
+				window.link.href = "CaptionItPage.html";
 			});
 		});
 		 // $.each(response.data, function(idx, obj) {
