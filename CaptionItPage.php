@@ -22,11 +22,8 @@
 	<div class="link_link" id="menu_1" style="float:left">
 		<a href="http://cap-it.herokuapp.com/" target="" name="benhulse"  style="color:white">Home</a>
 	</div>
-	<div class="link_link" id="menu_2" style="float:left;  margin-left: 10px">
-		<a href="http://benhulse.com/filter/design" target="" name="benhulse" style="color:white">View Previous</a>
-	</div>
 	<div class="link_link" id="menu_3" style="float:left; margin-left: 10px">
-		<a href="http://benhulse.com/filter/design" target="" name="benhulse"  style="color:white">About Cap-It</a>
+		<a href="http://cap-it.herokuapp.com/About.html" target="" name="benhulse"  style="color:white">About Cap-It</a>
 	</div>
 </div>
 	<div class="container" 
