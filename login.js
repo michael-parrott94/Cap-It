@@ -22,11 +22,10 @@ window.fbAsyncInit = function() {
 	var profilePic;
 	
     FB.api('/me/picture?width=140&height=110', function(response) {
+		window.alert("YO ! " + response.name + "!");
 		$(document).ready(function(){
 			$(".btn1").click(function(){
 				location.href = "CaptionItPage.html";
-				window.alert(response.data.url);
-				$("#pp0").attr("src",response.data.url);
 			});
 		});
     });
