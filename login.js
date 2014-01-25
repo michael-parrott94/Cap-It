@@ -29,7 +29,7 @@ window.fbAsyncInit = function() {
 		 var myVar = setInterval(function(){myTimer()},2000);
 		 function myTimer()
 		 {
-			//showImage(response.data[i].src_big, 300, 300, 'cool');
+			showImage(response.data[i].src_big, 300, 300, 'cool');
 			i++;
 			if(i == 10) clearInerval(myVar);
 		 }
@@ -52,6 +52,7 @@ function showImage(src, width, height, alt) {
     img.width = width;
     img.height = height;
     img.alt = alt;
+	img.style = "display:none";
 
     // This next line will just add it to the <body> tag
     document.body.appendChild(img);
