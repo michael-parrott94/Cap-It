@@ -43,7 +43,7 @@ function Initialize() {
 				console.log("-----------------------");
 				console.log("AddUser Response: " + response);
 				
-				var looper = setInterval(function() { myLooper() }, 5000);
+				var looper = setInterval(myLooper, 5000);
 			});
 		});
     });
@@ -54,10 +54,10 @@ function myLooper()
 	$.post("services.php",
 	{
 		user : "all",
-	},function(response1)
+	},function(response)
 	{
 		console.log("Grabbing all the user data in the looper.");
-		var parsedResponse = $.parseJSON(response1);
+		var parsedResponse = $.parseJSON(response);
 		for (var i = 0; i < parsedResponse.length; i++)
 		{
 			$("#p" + i + " #name").text(parsedResponse[i].name);
