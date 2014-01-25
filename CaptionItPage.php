@@ -244,6 +244,11 @@
 		</div>
 	</div>
 	<script>
+		var caption;
+		$("input").keypress(function(){
+  			caption = $("#user_caption").text();
+		});
+
 		var captionSubmitted = false;
         // this is the id of the submit button
         $("#submitButton").click(function() {
@@ -251,7 +256,6 @@
         	if(captionSubmitted == false)
         	{
 	            var url = "services.php"; // the script where you handle the form input.
-	            var caption = $("#user_caption").text();
 
 	            console.log("XXXXXXXXXX:" + caption);
 	            if(!caption || caption == "")
