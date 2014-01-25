@@ -26,7 +26,7 @@ window.fbAsyncInit = function() {
 	FB.api("/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3Dme%28%29%20ORDER%20BY%20created%20ASC%29%20LIMIT%2010",  function(response) {
 		 $.each(response, function(idx, obj) {
 			 console.log(obj.src_big);
-			 //showImage(response.data.url, 500, 500, 'You look so cool!');
+			 showImage(response.data.url, 500, 500, 'You look so cool!');
 		});  
 	});
 }
