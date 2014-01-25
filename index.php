@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Test123</test
+	<title>Test123</title>
 	function printjs($script) {
 		print "\n\n <script language='javascript'> \n\n $script \n\n script>\n\n";
 	}
