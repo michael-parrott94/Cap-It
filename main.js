@@ -31,6 +31,7 @@ function myLooper()
 	},function(response)
 	{
 		console.log("Grabbing all the user data in the looper.");
+		console.log(response);
 		var parsedResponse = $.parseJSON(response);
 		if (parsedResponse.length == 4 && !gameStarted)
 		{
