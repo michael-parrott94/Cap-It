@@ -89,8 +89,8 @@ function currentUserName()
 		{
 			alert('cannot find user name');
 		}else{
-			name = response.message;
-			console.log("UserNameResp: " + response.message);
+			name = response.name;
+			console.log("UserNameResp: " + response.name);
 		}
 	});
 
@@ -99,17 +99,15 @@ function currentUserName()
 
 function currentUserId()
 {
-	var userId = 0;
+	var userId = "0";
 
 	FB.api('/me', {fields: 'id'}, function(response){
 		if(!response || response.error)
 		{
 			alert('cannot find user id');
 		}else{
-			name = response.message;
-			console.log("UserIdResp: " + response);
+			userId = response.id;
 			console.log("UserIdResp: " + response.id);
-			console.log("UserIdResp: " + response.message);
 		}
 	});
 
