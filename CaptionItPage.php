@@ -19,7 +19,7 @@
           <script>
             // this is the id of the submit button
             $("#submitButton").click(function() {
-
+                alert("WOW");
                 var url = "services.php"; // the script where you handle the form input.
                 alert($("#captionSubmit").serialize());
                 $.post(url,
