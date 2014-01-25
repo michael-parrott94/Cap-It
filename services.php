@@ -38,7 +38,7 @@
     }
     
     // Add score
-    if(isset($_POST['score'] && isset($_POST['fb_id']))
+    if(isset($_POST['score']) && isset($_POST['fb_id']))
     {
         update_score($dbconn, $_POST['fb_id'], intval($_POST['score']));
     }
