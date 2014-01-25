@@ -14,61 +14,24 @@
     cookie     : true, // enable cookies to allow the server to access the session
     xfbml      : true  // parse XFBML
   });
- };
 
-function facebookLogin() {
+FB.Event.subscribe('auth.authResponseChange', function(response) {
+    if (response.status === 'connected') {
+      testAPI();
+    } else if (response.status === 'not_authorized') {
+      FB.login();
+    } else {
+      FB.login();
+    }
+  });
+};
  
-    FB.getLoginStatus(function(response) {
- 
-          if (response.status === 'connected') {
-            // connected
-			window.alert("Connected!");
-            getProfileImage();
- 
-          } else if (response.status === 'not_authorized') {
-            //app not_authorized
-            FB.login(function(response) {
-                if (response && response.status === 'connected') {
-				    window.alert("Connected!");
-                    getProfileImage();
-                }
-            });
- 
-          } else {
-            // not_logged_in to Facebook
-            FB.login(function(response) {
-                if (response && response.status === 'connected') {
-				    window.alert("Connected!");
-                    getProfileImage();
-                }
-            });
-          }
-    }); 
-}
- 
-function getProfileImage() {
-    window.alert("WORKING!");
-    var $photo = $('.photo'),
-        $btn = $('.btn-fb'),
-        $fbPhoto = $('img.fb-photo');
- 
-    //uploading
-    $btn.text('Uploading...');
- 
-    FB.api("/me/picture?width=180&height=180",  function(response) {
- 
-        var profileImage = response.data.url.split('https://')[1], //remove https to avoid any cert issues
-            randomNumber = Math.floor(Math.random()*256);
- 
-       //remove if there and add image element to dom to show without refresh
-       if( $fbPhoto.length ){
-           $fbPhoto.remove();
-       }
-         //add random number to reduce the frequency of cached images showing
-       $photo.append('<img class=\"fb-photo img-polaroid\" src=\"http://' + profileImage + '?' + randomNumber + '\">');
-        $btn.addClass('hide');
-    }); 
-}
+ function testAPI() {
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Good to see you, ' + response.name + '.');
+    });
+  }
  
 
 
