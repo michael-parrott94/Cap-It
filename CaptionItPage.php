@@ -255,6 +255,7 @@
 	               	function(data)
 	               	{
                		});
+               		
                		captionSubmitted = true;
         	}
         	else
