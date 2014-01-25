@@ -122,9 +122,9 @@ function addUserInfo()
 	{
 		$.post("services.php",
 		{
-			user : "add";
-			fb_id : userId;
-			name : userName;
+			user : "add",
+			fb_id : userId,
+			name : userName
 		});
 	}
 }
