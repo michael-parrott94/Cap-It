@@ -50,6 +50,9 @@ function showImage(src, width, height, alt) {
 
     // This next line will just add it to the <body> tag
     document.body.appendChild(img);
+	$( "img" ).fadeIn( "slow", function() {
+    // Animation complete
+  });
 }
 
 (function(d){
