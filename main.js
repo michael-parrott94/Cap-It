@@ -39,10 +39,9 @@ function Initialize() {
 			user : "add",
 			fb_id : userId,
 			fb_name : userName,
-			fb_pp : userPicture
+			fb_pp : profilePic
 		},function(response)
 		{
-			$("p").text(response);
 			console.log("AddUser Response: " + response);
 		});
 }
