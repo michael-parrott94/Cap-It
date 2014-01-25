@@ -20,8 +20,6 @@ window.fbAsyncInit = function() {
 
 function Initialize() {
 	var userId, userName, profilePic;
-	
-	//var looper = setInterval(function() { myLooper() }, 5000);
 
 	FB.api('/me', function(response) {
 		userId = response.id;
@@ -45,21 +43,7 @@ function Initialize() {
 				console.log("-----------------------");
 				console.log("AddUser Response: " + response);
 				
-				$.post("services.php",
-				{
-					user : "all",
-				},function(response1)
-				{
-					console.log("Grabbing all the user data in the looper.");
-					var parsedResponse = $.parseJSON(response1);
-					for (var i = 0; i < parsedResponse.length; i++)
-					{
-						$("#p" + i + " #name").text(parsedResponse[i].name);
-						$("#p" + i + " img").attr("src", parsedResponse[i].fb_pp);
-						$("#p" + i + " img").attr("height", "85px");
-						$("#p" + i + " img").attr("width", "85px");
-					}
-				});
+				var looper = setInterval(function() { myLooper() }, 5000);
 			});
 		});
     });
@@ -70,9 +54,17 @@ function myLooper()
 	$.post("services.php",
 	{
 		user : "all",
-	},function(response)
+	},function(response1)
 	{
 		console.log("Grabbing all the user data in the looper.");
+		var parsedResponse = $.parseJSON(response1);
+		for (var i = 0; i < parsedResponse.length; i++)
+		{
+			$("#p" + i + " #name").text(parsedResponse[i].name);
+			$("#p" + i + " img").attr("src", parsedResponse[i].fb_pp);
+			$("#p" + i + " img").attr("height", "85px");
+			$("#p" + i + " img").attr("width", "85px");
+		}
 	});
 }
 
