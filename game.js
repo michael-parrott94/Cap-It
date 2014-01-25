@@ -39,7 +39,7 @@ $(document).ready(function()
       // (2) it is a bad experience to be continually prompted to login upon page load.
       FB.login(function() {}, {scope: 'email, publish_actions'});
 
-      $("p").html("User Prompted Login");
+      $("p").html("<p><b>User Prompted Login</b></p>");
     } else {
       // In this case, the person is not logged into Facebook, so we call the login() 
       // function to prompt them to do so. Note that at this stage there is no indication
@@ -47,7 +47,7 @@ $(document).ready(function()
       // dialog right after they log in to Facebook. 
       // The same caveats as above apply to the FB.login() call here.
       FB.login(function() {}, {scope: 'email, publish_actions'});
-      $("p").html("User Prompted Login");
+      $("p").html("<p><b>User Prompted Login</b></p>");
     }
   });
   
