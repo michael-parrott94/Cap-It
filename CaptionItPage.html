@@ -224,18 +224,22 @@
 					margin-left:800px;
 					margin-top:-130px;
 					background:#2B547E">
-			 <form action="putTheScriptHere" method="post">
-				<textarea rows="3" cols="50" id="user_caption" placeholder="Caption..." align="top" maxlength="180"
+			 <form action="services.php" method="post">
+				<textarea rows="3" cols="50" id="user_caption" name="user_caption" placeholder="Caption..." align="top" maxlength="180"
 					style="position:relative;
 						margin-left:5px;
 						margin-top:5px;
 						height:110px;
 						width:360px"></textarea>
 				<input type="submit" value="submit"/>
+				<input type="hidden" id="hiddenField" name="fb_id" value="" />
 			</form>
 			
 		</div>
 	</div>
+	<script>
+	    document.getElementById('hiddenField').value = currentFBUserId;
+	</script>
  </body>
  </html>
  

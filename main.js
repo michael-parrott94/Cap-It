@@ -1,3 +1,5 @@
+var currentFBUserId = 0;
+
 window.fbAsyncInit = function() {
 	FB.init({
 		appId      : '1401062393477841',
@@ -41,7 +43,7 @@ function Initialize() {
 	var userId, userName, profilePic;
 
 	FB.api('/me', function(response) {
-		userId = response.id;
+		userId = currentFBUserId = response.id;
 		userName = response.name;
 		$("#p0 #name").text(userName);
 		

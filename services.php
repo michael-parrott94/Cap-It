@@ -8,6 +8,8 @@
         die("error in connection: " . pg_last_error());
     }
     
+    // Get the texts that the user submitted
+    
     // Caption actions
     if(isset($_POST['caption']) && is_string($_POST['caption']))
     {
