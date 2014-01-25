@@ -22,16 +22,14 @@ window.fbAsyncInit = function() {
     FB.api('/me/picture?width=140&height=110', function(response) {
       window.alert(response.data.url);
 	  showImage(response.data.url, 300, 300, 'YOU ARE COOL!');
-	  showImage(response.data.url, 300, 300, 'YOU ARE COOL!');
-	  showImage(response.data.url, 300, 300, 'YOU ARE COOL!');
     });
 
 	FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3Dme%28%29%20ORDER%20BY%20created%20ASC%29%20LIMIT%201',  function(response) {
-		 //$.each(response, function(idx, obj) {
-			 //console.log(obj.src_big);
+		 $.each(response.data, function(idx, obj) {
+			 console.log(obj.src_big);
 			 window.alert(response.data.src_big);
-			 //showImage(response.data.src_big, 500, 500, 'You look so cool!');
-		//});  
+//showImage(response.data.src_big, 500, 500, 'You look so cool!');
+		});  
 	});
 }
  
