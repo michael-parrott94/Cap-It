@@ -107,6 +107,8 @@ function currentUserId()
 			alert('cannot find user id');
 		}else{
 			name = response.message;
+			console.log("UserIdResp: " + response);
+			console.log("UserIdResp: " + response.id);
 			console.log("UserIdResp: " + response.message);
 		}
 	});
