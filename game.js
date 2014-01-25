@@ -1,4 +1,5 @@
-$(document).ready(function(){
+$(document).ready(function()
+{
   // Load the SDK asynchronously
   (function(d){
    var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
@@ -59,7 +60,10 @@ $(document).ready(function(){
     });
   }
 
-}
+	}
+
+
+
 
 $("#postButton").click(function(){
 
@@ -72,7 +76,7 @@ FB.api('/me/feed', 'post', { message: body }, function(response) {
   }
 });
 });
-});
+
 
 
 function currentUserName()
@@ -130,7 +134,7 @@ $("#storeName").click(function(){
 
 	addUserInfo();
 
-})
+});
 
 
 
