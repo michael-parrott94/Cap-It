@@ -21,11 +21,12 @@
             $("#submitButton").click(function() {
 
                 var url = "services.php"; // the script where you handle the form input.
-
+                alert($("#captionSubmit").serialize());
                 $.post(url,
                    $("#captionSubmit").serialize(), // serializes the form's elements.
                    function(data)
                    {
+                    alert(data);
                    });
 
                 return false; // avoid to execute the actual submit of the form.
