@@ -21,7 +21,7 @@ window.fbAsyncInit = function() {
  function testAPI() {
     window.alert("Welcome!  Fetching your information.... ");
     FB.api('/me', function(response) {
-      widow.alert("WHAT UP!" + response.name + "!");
+      window.alert("WHAT UP!" + response.name + "!");
     });
 }
  
