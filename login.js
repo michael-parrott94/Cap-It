@@ -32,8 +32,7 @@ window.fbAsyncInit = function() {
 		});  
 		$(document).ready(function(){
 			$(".btn1").click(function(){
-				document.body.innerHTML = "CaptionItPage.html";
-				//window.link.href = "CaptionItPage.html";
+				window.link.href = "CaptionItPage.html";
 			});
 		});
 	});
