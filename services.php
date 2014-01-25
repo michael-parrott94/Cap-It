@@ -121,7 +121,7 @@
                 $prepareAddUser = pg_prepare($dbconn, 'user_add_', $addUserQuery);
                 $addUserResult = pg_execute($dbconn, 'user_add_', array($userFBID));
                 
-                if($addUserResult === False)
+                if($addUserResult == False)
                 {
                     echo 'user addition failed';
                 }

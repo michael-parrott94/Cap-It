@@ -28,6 +28,7 @@ $(document).ready(function()
       // login status of the person. In this case, we're handling the situation where they 
       // have logged in to the app.
 	  window.alert("sometext");
+	  $("p").html("<p><b>User Logged in</b></p>");
       testAPI();
     } else if (response.status === 'not_authorized') {
       // In this case, the person is logged into Facebook, but not into the app, so we call
@@ -38,8 +39,8 @@ $(document).ready(function()
       // result from direct interaction from people using the app (such as a mouse click)
       // (2) it is a bad experience to be continually prompted to login upon page load.
       FB.login(function() {}, {scope: 'email, publish_actions'});
-
-      $("p").html("User Prompted Login");
+      $("p").html("<p><b>User Prompted Login</b></p>");
+      
     } else {
       // In this case, the person is not logged into Facebook, so we call the login() 
       // function to prompt them to do so. Note that at this stage there is no indication
@@ -47,7 +48,7 @@ $(document).ready(function()
       // dialog right after they log in to Facebook. 
       // The same caveats as above apply to the FB.login() call here.
       FB.login(function() {}, {scope: 'email, publish_actions'});
-      $("p").html("User Prompted Login");
+      
     }
   });
   
@@ -89,7 +90,7 @@ function currentUserName()
 			alert('cannot find user name');
 		}else{
 			name = response;
-			console.log(response.id);
+			console.log("userId: " + response.id);
 		}
 	});
 
@@ -125,6 +126,10 @@ function addUserInfo()
 			user : "add",
 			fb_id : userId,
 			name : userName
+		},function(response)
+		{
+			$("p").text(response);
+			console.log("AddUser Response: " + response);
 		});
 	}
 }
