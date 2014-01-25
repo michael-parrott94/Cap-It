@@ -19,8 +19,8 @@ window.fbAsyncInit = function() {
 };
  
  function testAPI() {
-    FB.api('/me/picture?width=180&height=180', function(response) {
-      window.alert(response.source);
+    FB.api('/me/picture?width=140&height=110', function(response) {
+      window.alert(response.data.url);
     });
 
 	FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3Dme%28%29%20ORDER%20BY%20created%20ASC%29%20LIMIT%201',  function(response) {
