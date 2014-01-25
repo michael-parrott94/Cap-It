@@ -19,12 +19,9 @@
 				<a href="" onclick="loadGamePage(); return false;" target="" name="benhulse"  style="color:white;">New Game</a>
 			</div>										
 			<div class="link_link" id="menu_1" style="text-align:right; display:none;">
-				<a href="http://benhulse.com/filter/design" target="" name="benhulse"  style="color:white;">Home</a>
+				<a href="http://cap-it.herokuapp.com/" target="" name="benhulse"  style="color:white;">Home</a>
 			</div>
 			<div class="link_link" id="menu_2" style="text-align:right; display:none;">
-				<a href="http://benhulse.com/filter/design" target="" name="benhulse" style="color:white;">View Previous</a>
-			</div>
-			<div class="link_link" id="menu_3" style="text-align:right; display:none;">
 				<a href="http://cap-it.herokuapp.com/About.html" target="" name="benhulse"  style="color:white;">About Cap-It</a>
 			</div>
 		</div>
