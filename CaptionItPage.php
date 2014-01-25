@@ -8,22 +8,7 @@
          
          <link rel="stylesheet" href="styles.css">
          
-         <script>
-            // this is the id of the submit button
-            $("#submitButton").click(function() {
 
-                var url = "services.php"; // the script where you handle the form input.
-
-                $.post(url,
-                   data: $("#captionSubmit").serialize(), // serializes the form's elements.
-                   success: function(data)
-                   {
-                   }
-                 });
-
-                return false; // avoid to execute the actual submit of the form.
-            });
-         </script>
  </head>
  
  <body style="background:#4C4646">
@@ -31,6 +16,21 @@
  <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
  <script src="main.js"></script>
  
+          <script>
+            // this is the id of the submit button
+            $("#submitButton").click(function() {
+
+                var url = "services.php"; // the script where you handle the form input.
+
+                $.post(url,
+                   $("#captionSubmit").serialize(), // serializes the form's elements.
+                   function(data)
+                   {
+                   });
+
+                return false; // avoid to execute the actual submit of the form.
+            });
+         </script>
 
  <h1 style="margin-left:355px; margin-top:100px; color:white"><big><big><big>JUST CAP-IT DOE</big></big></big></h1>
  <div class="nav-container horizontal" style="margin-left:360px; margin-top: 0px">
