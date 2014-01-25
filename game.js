@@ -89,8 +89,8 @@ function currentUserName()
 		{
 			alert('cannot find user name');
 		}else{
-			name = response;
-			console.log("userId: " + response.id);
+			name = response.message;
+			console.log("UserNameResp: " + response.message);
 		}
 	});
 
@@ -106,8 +106,8 @@ function currentUserId()
 		{
 			alert('cannot find user id');
 		}else{
-			name = response;
-			console.log(response.id);
+			name = response.message;
+			console.log("UserIdResp: " + response.message);
 		}
 	});
 
@@ -136,9 +136,7 @@ function addUserInfo()
 
 
 $("#storeName").click(function(){
-
 	addUserInfo();
-
 });
 
 
