@@ -8,5 +8,7 @@
     // the string "Joe's Widgets" in any way
     $result = pg_execute($dbconn, "my_query", array());
     
-    var_dump($result)
+    var_dump($result);
 ?>
+
+<h1>WOO</h1>
