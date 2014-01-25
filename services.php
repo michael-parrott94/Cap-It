@@ -13,8 +13,9 @@
     {
         var_dump($_POST);
         $setTextsQuery = "UPDATE users SET COLUMN caption_text = '$1' WHERE user_fb_id = $2";
+        var_dump($setTextsQuery);
         $textResults = pg_query_params($dbconn, $setTextsQuery, array($_POST['user_caption'], $_POST['fb_id']));
-        
+        var_dump($textResults);
     }
     
     // Caption actions
