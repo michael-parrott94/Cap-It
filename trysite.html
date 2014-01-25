@@ -70,7 +70,7 @@
 
 }
 
-document.getElementById("postButton").onclick = function(){
+document.getElementById("#postButton").onclick = function(){
 
 	var body = 'Trying Facebook JS SDK documentation';
 FB.api('/me/feed', 'post', { message: body }, function(response) {
