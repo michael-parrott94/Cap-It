@@ -25,9 +25,7 @@ window.fbAsyncInit = function() {
 		$(document).ready(function(){
 			$(".btn1").click(function(){
 				location.href = "CaptionItPage.html";
-				for (var i=0; i<4; i++) { 
-					$("#pp0 img")[0].src = response.data.url;
-				}
+				$("#pp0").attr("src","second.jpg");
 			});
 		});
     });
