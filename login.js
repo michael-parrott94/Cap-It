@@ -18,11 +18,13 @@ window.fbAsyncInit = function() {
 	});
 };
  
- function Initialize() {
-    FB.api('/me', function(response) {
-		$("#menu_0").attr("style", "text-align:right");
-		window.alert("YO ! " + response.name + "!");
-    });
+ function Initialize() {	
+	$("h1").hide().fadeIn(2000);
+	$("#menu_0").hide().fadeIn(3000);
+	$("#menu_1").hide().fadeIn(4000);
+	$("#menu_2").hide().fadeIn(5000);
+	$("#menu_3").hide().fadeIn(6000);
+	$("p").hide().fadeIn(7000);
 
 	// FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3Dme%28%29%20ORDER%20BY%20created%20ASC%29%20LIMIT%2010',  function(response) {
 		// $.each(response.data, function(idx, obj) {
