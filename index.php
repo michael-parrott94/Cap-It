@@ -16,16 +16,16 @@
 													margin-left:320px; 
 													margin-top:0px;">
 			<div class="link_link" id="menu_0" style="text-align:right; display:none">
-				<a href="" onclick="loadGamePage(); return false;" target="" name="benhulse"  style="color:white; display:none;">New Game</a>
+				<a href="" onclick="loadGamePage(); return false;" target="" name="benhulse"  style="color:white;">New Game</a>
 			</div>										
-			<div class="link_link" id="menu_1" style="text-align:right">
-				<a href="http://benhulse.com/filter/design" target="" name="benhulse"  style="color:white; display:none;">Home</a>
+			<div class="link_link" id="menu_1" style="text-align:right; display:none;">
+				<a href="http://benhulse.com/filter/design" target="" name="benhulse"  style="color:white;">Home</a>
 			</div>
-			<div class="link_link" id="menu_2" style="text-align:right">
-				<a href="http://benhulse.com/filter/design" target="" name="benhulse" style="color:white; display:none;">View Previous</a>
+			<div class="link_link" id="menu_2" style="text-align:right; display:none;">
+				<a href="http://benhulse.com/filter/design" target="" name="benhulse" style="color:white;">View Previous</a>
 			</div>
-			<div class="link_link" id="menu_3" style="text-align:right">
-				<a href="http://benhulse.com/filter/design" target="" name="benhulse"  style="color:white; display:none;">About Cap-It</a>
+			<div class="link_link" id="menu_3" style="text-align:right; display:none;">
+				<a href="http://benhulse.com/filter/design" target="" name="benhulse"  style="color:white;">About Cap-It</a>
 			</div>
 		</div>
 		<big><big><p style="color:WHITE;
