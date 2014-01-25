@@ -67,9 +67,7 @@
     // Load the SDK Asynchronously
 	(function (d) {
 		var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-		if (d.getElementById(id)) {
-			return;
-		}
+		if (d.getElementById(id)) { return;}
 		js = d.createElement('script');
 		js.id = id;
 		js.async = true;
