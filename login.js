@@ -38,13 +38,6 @@ window.fbAsyncInit = function() {
 		// });  
 	// });
 }
- 
-function loadProfilePic() {
-	FB.api('/me/picture?width=140&height=110', function(response) {
-		window.alert(response.data.url);
-		$("#pp0").attr("src",response.data.url);
-    });
-}
 
 function showImage(src, width, height, alt) {
     var img = document.createElement("img");
