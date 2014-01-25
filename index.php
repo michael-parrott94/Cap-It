@@ -15,27 +15,34 @@
     xfbml      : true  // parse XFBML
   });
 
-  FB.Event.subscribe('auth.authResponseChange', function(response) {
-    if (response.status === 'connected') {
-		// connected
-        getProfileImage();
-    } else if (response.status === 'not_authorized') {
-      //app not_authorized
-		FB.login(function(response) {
-			if (response && response.status === 'connected') {
-				getProfileImage();
-			}
-		});
-    } else {
-      // not_logged_in to Facebook
-	  FB.login(function(response) {
-		if (response && response.status === 'connected') {
-			getProfileImage();
-		}
-	});
-    }
-  });
-  };
+function facebookLogin() {
+ 
+    FB.getLoginStatus(function(response) {
+ 
+          if (response.status === 'connected') {
+            // connected
+            getProfileImage();
+ 
+          } else if (response.status === 'not_authorized') {
+            //app not_authorized
+            FB.login(function(response) {
+                if (response && response.status === 'connected') {
+                    getProfileImage();
+                }
+            });
+ 
+          } else {
+            // not_logged_in to Facebook
+            FB.login(function(response) {
+                if (response && response.status === 'connected') {
+                    getProfileImage();
+                }
+            });
+          }
+    }); 
+}
+ 
+
   
   function getProfileImage() {
     var $photo = $('.photo'),
