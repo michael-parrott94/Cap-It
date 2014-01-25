@@ -40,6 +40,10 @@ function Initialize() {
 			fb_id : userId,
 			fb_name : userName,
 			fb_pp : profilePic
+			console.log("Adding...");
+			console.log("userId: " + userId);
+			console.log("name: " + userName);
+			console.log("profilePic: " + profilePic);
 		},function(response)
 		{
 			console.log("AddUser Response: " + response);
