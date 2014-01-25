@@ -38,15 +38,31 @@ function myLooper()
 			startGame(parsedResponse);
 			gameStarted = true;
 		}		
+		if (parsedResponse.length < 4 && gameStarted)
+		{
+			gameStarted = false;
+			for (var i = 3; i >= parsedResponse.length; i--)
+			{
+				$("#p" + i + " #name").hide();
+				$("#p" + i + " img").hide();
+				$("#p" + i + " p").hide();
+				$("#p" + i + " #score").hide();
+			}
+		}
 		for (var i = 0; i < parsedResponse.length; i++)
 		{
-			$("#p" + i + " #name").text(parsedResponse[i].name); //name
+			$("#p" + i + " #name").text(parsedResponse[i].name).show(); //name
 			//profile pic
-			$("#p" + i + " img").attr("src", parsedResponse[i].fb_pp);
+			$("#p" + i + " img").attr("src", parsedResponse[i].fb_pp).show();
 			$("#p" + i + " img").attr("height", "85px");
 			$("#p" + i + " img").attr("width", "85px");
-			$("#p" + i + " p").text(parsedResponse[i].caption_text);//caption
-			$("#p" + i + " #score").text(parsedResponse[i].scores);//score
+			if (i == 0) 
+			{
+				$("#p" + i + " p").text("======ADMIN======").show(); //caption for the admin
+			} else {
+				$("#p" + i + " p").text(parsedResponse[i].caption_text).show();//caption
+			}
+			$("#p" + i + " #score").text(parsedResponse[i].scores).show();//score
 		}
 		if (isFirstTimeLoop)
 		{
@@ -68,7 +84,6 @@ function startGame(parsedResponse)
 		var url = response.data[Math.floor((Math.random()*response.data.length - 1)+1)].src_big;
 		$("#bigPic").attr("src", url);
 	});
-	$("#p0").addClass("adminPlayer");
 }
 
 function Initialize() {
@@ -79,7 +94,7 @@ function Initialize() {
 		if(document.getElementById('fb_id'))
 		    document.getElementById('fb_id').value = currentFBUserId
 		userName = response.name;
-		$("#p0 #name").text(userName);
+		// $("#p0 #name").text(userName);
 		
 		FB.api('/me/picture', function(response) {
 			profilePic = response.data.url;
@@ -101,7 +116,7 @@ function Initialize() {
 		});
     });
     
-    var looper = setInterval(function(){myLooper()}, 5000);
+    var looper = setInterval(function(){myLooper()}, 2000);
 }
 
 
