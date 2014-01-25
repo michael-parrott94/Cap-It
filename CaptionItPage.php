@@ -59,7 +59,7 @@
 				vertical-align: middle;
 				border:1px solid #000;
 				background:BLACK">
-				<img id="bigPic" style="vertical-align:middle; horizontal-align:middle;">
+				<img id="bigPic" style="vertical-align:middle; horizontal-align:middle; height:100%">
 		</div>
 		<div class="container player" id="p0"
 			style="width:385px;
