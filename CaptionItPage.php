@@ -62,9 +62,8 @@
 				margin-top: 15px;
 				vertical-align: middle;
 				border:1px solid #000;
-				display:table-cell;
 				background:BLACK">
-				<img id="bigPic" style="display:block; margin:auto; vertical-align:middle; horizontal-align:middle; height:100%; padding-left:0 auto; padding-right:0 auto">
+				<img id="bigPic" style="display:block; position:relative; margin:auto; vertical-align:middle; horizontal-align:middle; height:100%; padding-left:0 auto; padding-right:0 auto">
 		</div>
 		<div class="container player" id="p0"
 			style="width:385px;
