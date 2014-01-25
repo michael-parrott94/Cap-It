@@ -23,6 +23,9 @@ window.fbAsyncInit = function() {
       window.alert("WHAT UP! " + response.name + "!");
     });
 	
+	FB.api('/me/permissions', function(response) {
+    });
+
 	FB.api("/me/photos",  function(response) {
 		 $.each(response.images, function(idx, obj) {
 			 console.log(obj.source);
