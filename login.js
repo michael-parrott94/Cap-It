@@ -29,10 +29,15 @@ window.fbAsyncInit = function() {
 		 var myVar = setInterval(function(){myTimer()},2000);
 		 function myTimer()
 		 {
-			showImage(response.data[i].src_big, 300, 300, 'cool');
+			//showImage(response.data[i].src_big, 300, 300, 'cool');
 			i++;
 			if(i == 10) clearInerval(myVar);
 		 }
+		 $(document).ready(function(){
+			$(".btn1").click(function(){
+				$("img").fadeIn();
+			});
+		});
 		 // $.each(response.data, function(idx, obj) {
 			// console.log(obj.src_big);
 			// window.alert(obj.src_big);
@@ -50,9 +55,6 @@ function showImage(src, width, height, alt) {
 
     // This next line will just add it to the <body> tag
     document.body.appendChild(img);
-	$( "img" ).fadeIn( "slow", function() {
-    // Animation complete
-  });
 }
 
 (function(d){
