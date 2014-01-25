@@ -1,7 +1,10 @@
 <h1>top</h1>
 <?php
+    echo 'test';
+    var_dump(pg_connect);
+    echo 'file';
     $dbconn = pg_connect("host=ec2-54-197-241-91.compute-1.amazonaws.com port=5432 dbname=d65t2it35j2n1v user=qbvtfhdthkmlmu password=8kv-mljjzibMSa3fL9KcHDDAcB");
-    
+    var_dump($dbconn);
     if(!$dbconn)
     {
         die("error in connection: " . pg_last_error());
