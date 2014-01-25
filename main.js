@@ -36,7 +36,8 @@ function myLooper()
 			$("#p" + i + " img").attr("src", parsedResponse[i].fb_pp);
 			$("#p" + i + " img").attr("height", "85px");
 			$("#p" + i + " img").attr("width", "85px");
-			$("#p" + i + " p").text(parsedResponse[i].caption_text);
+			$("#p" + i + " p").text(parsedResponse[i].caption_text);//caption
+			$("#p" + i + " #score").text(parsedResponse[i].scores);//score
 		}
 	});
 }
