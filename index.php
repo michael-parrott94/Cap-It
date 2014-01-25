@@ -22,12 +22,14 @@ function facebookLogin() {
  
           if (response.status === 'connected') {
             // connected
+			window.alert("Connected!");
             getProfileImage();
  
           } else if (response.status === 'not_authorized') {
             //app not_authorized
             FB.login(function(response) {
                 if (response && response.status === 'connected') {
+				    window.alert("Connected!");
                     getProfileImage();
                 }
             });
@@ -36,6 +38,7 @@ function facebookLogin() {
             // not_logged_in to Facebook
             FB.login(function(response) {
                 if (response && response.status === 'connected') {
+				    window.alert("Connected!");
                     getProfileImage();
                 }
             });
