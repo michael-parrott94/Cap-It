@@ -4,7 +4,9 @@
     
     if(!$dbconn)
     {
-        die("error in connection: " . pg_last_error());
+        echo pg_last_error();
+        return;
+        //die("error in connection: " . pg_last_error());
     }
     
     // Caption actions
@@ -51,7 +53,7 @@
         }
     }
     
-    if(isset($_POST[''])
+    if(isset($_POST['user'])
     {
     }
     
