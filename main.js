@@ -45,8 +45,8 @@ function myLooper()
 			isFirstTimeLoop = false;
 			for (var i = 0; i < parsedResponse.length; i++)
 			{
-				$("#p" + i + " #name").fadeIn();
-				$("#p" + i + " img").fadeIn();
+				$("#p" + i + " #name").hide().fadeIn(4000);
+				$("#p" + i + " img").hide().fadeIn(4000);
 			}
 		}
 	});
