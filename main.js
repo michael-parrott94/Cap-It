@@ -24,7 +24,6 @@ function Initialize() {
 	FB.api('/me', function(response) {
 		userId = response.id;
 		userName = response.name;
-		debugger;
 		$("#p0 #name").text(userName);
     });
 	
