@@ -25,7 +25,7 @@ window.fbAsyncInit = function() {
 	
 	FB.api("/me/picture?width=180&height=180",  function(response) {
         console.log(response.data.url);
-		showImage(response.data.url, 276, 110, 'You look so cool!');
+		showImage(response.data.url, 500, 500, 'You look so cool!');
 	});  
 }
  
