@@ -43,6 +43,7 @@ function myLooper()
 		if (isFirstTimeLoop) // Fade in all if it's first time
 		{
 			isFirstTimeLoop = false;
+			numPlayers =  newNumPlayers;
 			for (var i = 0; i < newNumPlayers; i++)
 			{
 				$("#p" + i + " #name").text(parsedResponse[i].name); //name
@@ -117,6 +118,7 @@ function myLooper()
 			}
 
 			numCaptions = 0; // reset number of captions
+			numPlayers = newNumPlayers;
 		}
 	});
 }
