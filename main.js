@@ -82,13 +82,12 @@ function myLooper()
 			}
 			if (newNumPlayers > numPlayers) // if there are newly joined players
 			{
-				for (var i = numPlayers; i < newNumPlayers)
+				for (var i = numPlayers; i < newNumPlayers; i++)
 				{
 					// Fade in
 					$("#p" + i + " #name").hide().fadeIn(4000);
 					$("#p" + i + " img").hide().fadeIn(4000);
 				}
-				numPlayers = newNumPlayers;
 			}
 			for (var i = 0; i < newNumPlayers; i++)
 			{
