@@ -2,6 +2,10 @@ var currentFBUserId = 0;
 var isFirstTimeLoop = true;
 var gameStarted = false;
 var admin;
+var FBId;
+var numCaptions;
+var numPlayers;
+
 
 window.fbAsyncInit = function() {
 	FB.init({
@@ -23,6 +27,7 @@ window.fbAsyncInit = function() {
 	});
 };
 
+// Main looper for every second
 function myLooper()
 {
 	$.post("services.php",
@@ -33,45 +38,85 @@ function myLooper()
 		console.log("Grabbing all the user data in the looper.");
 		console.log(response);
 		var parsedResponse = $.parseJSON(response);
-		if (parsedResponse.length == 4 && !gameStarted)
-		{
-			startGame(parsedResponse);
-			gameStarted = true;
-		}		
-		if (parsedResponse.length < 4 && gameStarted)
-		{
-			gameStarted = false;
-			for (var i = 3; i >= parsedResponse.length; i--)
-			{
-				$("#p" + i + " #name").hide();
-				$("#p" + i + " img").hide();
-				$("#p" + i + " p").hide();
-				$("#p" + i + " #score").hide();
-			}
-		}
-		for (var i = 0; i < parsedResponse.length; i++)
-		{
-			$("#p" + i + " #name").text(parsedResponse[i].name).show(); //name
-			//profile pic
-			$("#p" + i + " img").attr("src", parsedResponse[i].fb_pp).show();
-			$("#p" + i + " img").attr("height", "85px");
-			$("#p" + i + " img").attr("width", "85px");
-			if (i == 0) 
-			{
-				$("#p" + i + " p").text("======ADMIN======").show(); //caption for the admin
-			} else {
-				$("#p" + i + " p").text(parsedResponse[i].caption_text).show();//caption
-			}
-			$("#p" + i + " #score").text(parsedResponse[i].scores).show();//score
-		}
-		if (isFirstTimeLoop)
+		var newNumPlayers = parsedResponse.length;
+
+		if (isFirstTimeLoop) // Fade in all if it's first time
 		{
 			isFirstTimeLoop = false;
-			for (var i = 0; i < parsedResponse.length; i++)
+			for (var i = 0; i < newNumPlayers; i++)
 			{
+				$("#p" + i + " #name").text(parsedResponse[i].name); //name
+				$("#p" + i + " img").attr("src", parsedResponse[i].fb_pp); // profile pic
+				$("#p" + i + " img").attr("height", "85px");
+				$("#p" + i + " img").attr("width", "85px");
+				if (i == 0) 
+				{
+					$("#p" + i + " p").text("======ADMIN======"); //caption for the admin
+				}
+				$("#p" + i + " #score").text(parsedResponse[i].scores);//score
+
+				// Fade in 
 				$("#p" + i + " #name").hide().fadeIn(4000);
 				$("#p" + i + " img").hide().fadeIn(4000);
+				$("#p" + i + " #score").hide().fadeIn(4000);
 			}
+		} 
+		else 
+		{
+			if (newNumPlayers == 4 && !gameStarted) // when 4 players have joined (start game)
+			{
+				startGame(parsedResponse);
+				gameStarted = true;
+			}		
+			if (newNumPlayers < 4 && gameStarted) // remove name/pic/etc when there are less players
+			{
+				gameStarted = false;
+				for (var i = 3; i >= newNumPlayers; i--)
+				{
+					$("#p" + i + " #name").hide();
+					$("#p" + i + " img").hide();
+					$("#p" + i + " p").hide();
+					$("#p" + i + " #score").hide();
+				}
+			}
+			if (newNumPlayers > numPlayers) // if there are newly joined players
+			{
+				for (var i = numPlayers; i < newNumPlayers)
+				{
+					// Fade in
+					$("#p" + i + " #name").hide().fadeIn(4000);
+					$("#p" + i + " img").hide().fadeIn(4000);
+				}
+				numPlayers = newNumPlayers;
+			}
+			for (var i = 0; i < newNumPlayers; i++)
+			{
+				$("#p" + i + " #name").text(parsedResponse[i].name).show(); //name
+				//profile pic
+				$("#p" + i + " img").attr("src", parsedResponse[i].fb_pp).show();
+				$("#p" + i + " img").attr("height", "85px");
+				$("#p" + i + " img").attr("width", "85px");
+				if (i == 0) 
+				{
+					$("#p" + i + " p").text("======ADMIN======").show(); //caption for the admin
+				} else {
+					$("#p" + i + " p").text(parsedResponse[i].caption_text).show();//caption
+					if (parsedResponse[i].caption_text != "") numCaptions++;
+				}
+				$("#p" + i + " #score").text(parsedResponse[i].scores).show();//score
+			}
+
+			if (numCaptions == 3 && admin == FBId) // When all 3 captions are submitted
+			{
+				window.alert("Click on your favourite caption!");
+				$("#p1 img").click(function()
+				{
+					window.alert($("#p1 #name").text() + " gets 10 points!");
+					$("#p1 img").src
+				});
+			}
+
+			numCaptions = 0; // reset number of captions
 		}
 	});
 }
@@ -80,17 +125,20 @@ function startGame(parsedResponse)
 {
 	console.log("starting game...");
 	admin = parsedResponse[0].user_fb_id;
-	FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3D' + admin + '%20ORDER%20BY%20created%20ASC%29%20LIMIT%20100',  function(response) {
-		var url = response.data[Math.floor((Math.random()*response.data.length - 1)+1)].src_big;
-		$("#bigPic").attr("src", url);
-	});
+	if (admin == FBId)
+	{
+		FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3D' + admin + '%20ORDER%20BY%20created%20ASC%29%20LIMIT%20100',  function(response) {
+			var url = response.data[Math.floor((Math.random()*response.data.length - 1)+1)].src_big;
+			$("#bigPic").attr("src", url);
+		});
+	}
 }
 
 function Initialize() {
-	var userId, userName, profilePic;
+	var userName, profilePic;
 
 	FB.api('/me', function(response) {
-		userId = currentFBUserId = response.id;
+		FBId = currentFBUserId = response.id;
 		if(document.getElementById('fb_id'))
 		    document.getElementById('fb_id').value = currentFBUserId
 		userName = response.name;
@@ -102,12 +150,12 @@ function Initialize() {
 			$.post("services.php",
 			{
 				user : "add",
-				fb_id : userId,
+				fb_id : FBId,
 				fb_name : userName,
 				fb_pp : profilePic
 			},function(response)
 			{
-				console.log("userId: " + userId);
+				console.log("userId: " + FBId);
 				console.log("name: " + userName);
 				console.log("profilePic: " + profilePic);
 				console.log("-----------------------");
@@ -116,10 +164,8 @@ function Initialize() {
 		});
     });
     
-    var looper = setInterval(function(){myLooper()}, 2000);
+    var looper = setInterval(function(){myLooper()}, 1000);
 }
-
-
 
 (function(d){
 var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];

@@ -7,6 +7,7 @@ window.fbAsyncInit = function() {
 		xfbml      : true  // parse XFBML
 	});
 
+	// Facebook login 
 	FB.Event.subscribe('auth.authResponseChange', function(response) {
 		if (response.status === 'connected') {
 			Initialize();
@@ -18,6 +19,7 @@ window.fbAsyncInit = function() {
 	});
 };
  
+ // Animation to fade everything
  function Initialize() {	
 	$("h1").hide().fadeIn(4000);
 	$("#menu_0").hide().fadeIn(5000);
@@ -27,6 +29,7 @@ window.fbAsyncInit = function() {
 	$("p").hide().fadeIn(9000);
 }
 
+// When "New Game" button is pushed. Takes you to the main game screen
 function loadGamePage() {
 	$.post("services.php",
 	{
@@ -43,18 +46,7 @@ function loadGamePage() {
 	});
 }
 
-function showImage(src, width, height, alt) {
-    var img = document.createElement("img");
-    img.src = src;
-    img.width = width;
-    img.height = height;
-    img.alt = alt;
-	img.style.display = "none";
-
-    // This next line will just add it to the <body> tag
-    document.body.appendChild(img);
-}
-
+// Load the SDK asynchronously
 (function(d){
 var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
 if (d.getElementById(id)) {return;}
