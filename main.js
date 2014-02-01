@@ -126,6 +126,7 @@ function startGame(parsedResponse)
 {
 	console.log("starting game...");
 	admin = parsedResponse[0].user_fb_id;
+	console.log(admin, FBId);
 	if (admin == FBId)
 	{
 		FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3D' + admin + '%20ORDER%20BY%20created%20ASC%29%20LIMIT%20100',  function(response) {
