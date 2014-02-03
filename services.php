@@ -38,16 +38,39 @@
             $getCaptionResult = pg_query_params($dbconn, $getCaptionQuery, array($userID));
             $row = pg_fetch_array($getCaptionResult);
             echo $row['caption_text'];
+        }
+    }
+    
+    if(isset($_POST['picture']))
+    {
+        if($_POST['picture'] == 'add' && isset($_POST['picture_name']))
+        {
+            $addQuery = 'INSERT INTO pictures VALUES (DEFAULT, $1)';
+            $addResults = pg_query_params($dbconn, $getAddQuery, array($_POST['picture_name']));
             
-            
-            
+        }
+        else if($_POST['picture'] == 'get')
+        {
+            $getQuery = 'SELECT picture_name FROM pictures WHERE picture_id=$1';
+            //$getResults = pg_query_
         }
     }
     
     // Add score
-    if(isset($_POST['score']) && isset($_POST['fb_id']))
+    if(isset($_POST['score']))
     {
-        update_score($dbconn, $_POST['fb_id'], intval($_POST['score']));
+        if(isset($_POST['fb_id']))
+        {
+            update_score($dbconn, $_POST['fb_id'], intval($_POST['score']));
+        }
+        else if(isset($_POST['name']))
+        {
+            $getFBIDQuery = 'SELECT user_fb_id FROM users WHERE name=$1';
+            $getFBIDResults = pg_query_params($dbconn, $getFBIDQuery, array($_POST['name']));
+            $name = pg_array_path($getFBIDResults);
+            $name = $name[0];
+            echo $name;
+        }
     }
     
     // Group actions

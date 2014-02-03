@@ -242,10 +242,9 @@
 	</div>
 	<script>
         // this is the id of the submit button
-        $("#submitButton").click(function() {
+        $("#submitButton").click(function(e) {
 
 	            var url = "services.php"; // the script where you handle the form input.
-	            var caption = document.getElementById("#user_caption").value;
 
 	        		$.post(url,
 	               	$("#captionSubmit").serialize(), // serializes the form's elements.
@@ -253,7 +252,7 @@
 	               	{
                		});
                		
-            return false; // avoid to execute the actual submit of the form.
+            e.preventDefault(); // avoid to execute the actual submit of the form.
         });
 
      </script>
