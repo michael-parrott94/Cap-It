@@ -2,7 +2,7 @@
  <head>
 	 <meta charset="utf-8">
 	 <title>CAP-IT</title>
-	 <link rel="stylesheet" href="http://flip.hr/css/bootstrap.min.css">
+	 <link rel="stylesheet" href="bootstrap-3.0.3-dist/dist/css/bootstrap.min.css">
  </head>
 
  <body style="background:#4C4646">
