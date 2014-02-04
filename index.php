@@ -2,13 +2,13 @@
  <head>
 	 <meta charset="utf-8">
 	 <title>CAP-IT</title>
-	 <link rel="stylesheet" href="bootstrap-3.0.3-dist/dist/css/bootstrap.min.css">
+	 <link rel="stylesheet" href="css/bootstrap.min.css">
  </head>
 
  <body style="background:#4C4646">
  	<div id="fb-root"></div>
 	<script src="http://code.jquery.com/jquery-2.1.0.js"></script>
-	<script src="login.js"></script>
+	<script src="js/login.js"></script>
 	<div class="container">
 	<h1 style="margin-left:355px; width:580px; margin-top:300px; margin-left:-50px; color:white; display:none;"><big><big><big>JUST CAP-IT DOE</big></big></big></h1>
 		<div class="nav-container horizontal" style="position:relative; 
@@ -19,10 +19,10 @@
 				<a href="" onclick="loadGamePage(); return false;" target="" name="benhulse"  style="color:white;">New Game</a>
 			</div>										
 			<div class="link_link" id="menu_1" style="text-align:right; display:none;">
-				<a href="http://cap-it.herokuapp.com/" target="" name="benhulse"  style="color:white;">Home</a>
+				<a href="index.php" target="" name="benhulse"  style="color:white;">Home</a>
 			</div>
 			<div class="link_link" id="menu_2" style="text-align:right; display:none;">
-				<a href="http://cap-it.herokuapp.com/About.html" target="" name="benhulse"  style="color:white;">About Cap-It</a>
+				<a href="About.html" target="" name="benhulse"  style="color:white;">About Cap-It</a>
 			</div>
 		</div>
 		<big><big><p style="color:WHITE;

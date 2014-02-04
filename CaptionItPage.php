@@ -4,26 +4,23 @@
  <head>
          <meta charset="utf-8">
          <title>CAP-IT</title>
-         <link rel="stylesheet" href="http://flip.hr/css/bootstrap.min.css">
-         
-         <link rel="stylesheet" href="styles.css">
-         
-
+         <link rel="stylesheet" href="css/bootstrap.min.css">
+         <link rel="stylesheet" href="css/styles.css">
  </head>
  
  <body style="background:#4C4646">
  <div id="fb-root"></div>
  <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
- <script src="main.js"></script>
+ <script src="js/main.js"></script>
  
 
  <h1 style="margin-left:355px; margin-top:100px; color:white"><big><big><big>JUST CAP-IT DOE</big></big></big></h1>
  <div class="nav-container horizontal" style="margin-left:360px; margin-top: 0px">
 	<div class="link_link" id="menu_1" style="float:left">
-		<a href="http://cap-it.herokuapp.com/" target="" name="benhulse"  style="color:white">Home</a>
+		<a href="index.php" target="" name="benhulse"  style="color:white">Home</a>
 	</div>
 	<div class="link_link" id="menu_3" style="float:left; margin-left: 10px">
-		<a href="http://cap-it.herokuapp.com/About.html" target="" name="benhulse"  style="color:white">About Cap-It</a>
+		<a href="About.html" target="" name="benhulse"  style="color:white">About Cap-It</a>
 	</div>
 </div>
 	<div class="container" 
