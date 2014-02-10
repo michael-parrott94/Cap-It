@@ -35,11 +35,10 @@ function myLooper()
 		user : "all",
 	},function(response)
 	{
-		//console.log("Grabbing all the user data in the looper.");
-		//console.log(response);
+		console.log("Grabbing all the user data in the looper.");
+		console.log(response);
 		var parsedResponse = $.parseJSON(response);
 		var newNumPlayers = parsedResponse.length;
-
 		if (isFirstTimeLoop) // Fade in all if it's first time
 		{
 			isFirstTimeLoop = false;

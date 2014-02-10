@@ -1,7 +1,33 @@
 <?php
     function loadHerokuDB()
     {
-        return pg_connect("host=ec2-54-197-241-91.compute-1.amazonaws.com port=5432 dbname=d65t2it35j2n1v user=qbvtfhdthkmlmu password=8kv-mljjzibMSa3fL9KcHDDAcB");
+        // Load Heroku config variables if they exist; otherwise, load from db.txt
+        $DB_HOST = getenv('PROD_DB_HOST');
+        $DB_NAME = getenv('PROD_DB_NAME');
+        $DB_PASSWORD = getenv('PROD_DB_PASSWORD');
+        $DB_PORT = getenv('PROD_DB_PORT');
+        $DB_USER = getenv('PROD_DB_USER');
+        
+        // If any one of the config vars is false, then load up db.txt (assuming the file exists)
+        if((!$DB_HOST || !$DB_NAME || !$DB_PASSWORD || !$DB_PORT || !$DB_USER) && file_exists('db.txt'))
+        {
+            $tempVars = file('db.txt');
+            // Split the file up by line, since each var has its own line
+            $dbVars = array();
+            for($i = 0; $i < count($tempVars); $i++)
+            {
+                // Split the line up by =, to get the key name and value
+                $tempArr = explode('=', $tempVars[$i]);
+                $dbVars[$tempArr[0]] = trim($tempArr[1]);
+            }
+            $DB_HOST = $dbVars['PROD_DB_HOST'];
+            $DB_NAME = $dbVars['PROD_DB_NAME'];
+            $DB_PASSWORD = $dbVars['PROD_DB_PASSWORD'];
+            $DB_PORT = $dbVars['PROD_DB_PORT'];
+            $DB_USER = $dbVars['PROD_DB_USER'];
+        }
+
+        return pg_connect("host=".$DB_HOST." port=".$DB_PORT." dbname=".$DB_NAME." user=".$DB_USER." password=".$DB_PASSWORD);
     }
     
     function closeHerokuDB($db)

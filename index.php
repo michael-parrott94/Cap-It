@@ -24,7 +24,7 @@
      <a href="index.php" style="color:white;">Home</a>
     </div>
     <div id="menu_2" style="text-align:right; display:none;">
-	 <a href="About.html" style="color:white;">About Cap-It</a>
+	 <a href="about.html" style="color:white;">About Cap-It</a>
     </div>
    </div>
    <big><big><p style="color:WHITE;
