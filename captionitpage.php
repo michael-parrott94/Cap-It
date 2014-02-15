@@ -19,7 +19,7 @@
         <a href="index.php" target="" name="benhulse"  style="color:white">Home</a>
       </div>
       <div class="link_link" id="menu_3" style="float:left; margin-left: 10px">
-      	<a href="about.html" target="" name="benhulse"  style="color:white">About Cap-It</a>
+      	<a href="about.php" target="" name="benhulse"  style="color:white">About Cap-It</a>
       </div>
     </div>
     <div class="container" 
