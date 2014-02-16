@@ -3,6 +3,7 @@ var isFirstTimeLoop = true;
 var gameStarted = false;
 var admin;
 var FBId;
+var playerFBIds = {};
 var numCaptions;
 var numPlayers;
 var looper;
@@ -30,8 +31,15 @@ $(document).ready(function() {
 
 	$('.container.player').click(function (){
 		var id = $(this).attr('id');
-		window.alert($('#' + id + ' #name').text() + ' gets 10 points!');
-		//TO DO : update score 
+		var score = parseInt($('#' + id + ' #score').text()) + 10;
+		window.alert($('#' + id + ' #name').text() + ' gets 10 points! \n He now has ' 
+			+ score + ' points!');
+		/*
+		$.post("services.php",
+		{
+			'score': score,
+			'fb_id': 
+		} */
 	});
 
 	// Main looper for every second
@@ -140,19 +148,6 @@ $(document).ready(function() {
 		}
 	}
 
-	function startGame(parsedResponse)
-	{
-		console.log("starting game...");
-		admin = parsedResponse[0].user_fb_id;
-
-		//TO DO: Check if there's already a BIG picture on database
-		FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3D' + admin + '%20ORDER%20BY%20created%20ASC%29%20LIMIT%20100',  function(response) {
-			var url = response.data[Math.floor((Math.random()*response.data.length - 1)+1)].src_big;
-			console.log(url);
-			$('#bigPic').attr('src', url);
-		});
-	}
-
 	function Initialize() {
 		var userName, profilePic;
 
@@ -184,6 +179,27 @@ $(document).ready(function() {
 	    });
 	    
 	    looper = setInterval(function(){myLooper()}, 1000);
+	}
+
+	function startGame(parsedResponse)
+	{
+		console.log("starting game...");
+		admin = parsedResponse[0].user_fb_id;
+		for (var i = 1; i < 4; i++)
+		{
+			var id = 'p' + i;
+			playerFBIds[id] = parsedResponse[i].user_fb_id;
+		}
+		window.alert("p1 = " + playerFBIds['p1'] "/n" + 
+					 "p2 = " + playerFBIds['p2'] "/n" +
+					 "p3 = " + playerFBIds['p3'] "/n" +  )
+
+		//TO DO: Check if there's already a BIG picture on database
+		FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3D' + admin + '%20ORDER%20BY%20created%20ASC%29%20LIMIT%20100',  function(response) {
+			var url = response.data[Math.floor((Math.random()*response.data.length - 1)+1)].src_big;
+			console.log(url);
+			$('#bigPic').attr('src', url);
+		});
 	}
 
 	(function(d){
