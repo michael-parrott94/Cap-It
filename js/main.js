@@ -28,6 +28,12 @@ $(document).ready(function() {
 		});
 	};
 
+	$('.container.player').click(function (){
+		var id = $(this).attr('id');
+		window.alert($('#' + id + ' #name').text() + ' gets 10 points!');
+		//TO DO : update score 
+	});
+
 	// Main looper for every second
 	function myLooper()
 	{
@@ -121,7 +127,7 @@ $(document).ready(function() {
 		if (admin == FBId)
 		{
 			window.alert("Admin, click on the person you think has the best caption!");
-				$('.container_player').click(function (){
+				$('.container.player').click(function (){
 					var id = $(this).attr('id');
 					window.alert($('#' + id + ' #name').text() + ' gets 10 points!');
 					//TO DO : update score 
