@@ -29,7 +29,8 @@ $(document).ready(function() {
 
 	$("img").click(function()
 	{
-		window.alert("clicked!");
+		var id = $(this).closest("div").attr("id");
+		window.alert($("#p" + id + " #name").text() + " gets 10 points!");
 	});
 
 	// Main looper for every second
@@ -111,7 +112,6 @@ $(document).ready(function() {
 				if (numCaptions == 3) // When all 3 captions are submitted
 				{
 					adminPickWinner();
-					clearInterval(myLooper);
 				}
 
 				numCaptions = 0; // reset number of captions
@@ -122,12 +122,12 @@ $(document).ready(function() {
 
 	function adminPickWinner()
 	{
+		clearInterval(looper);
 		if (admin == FBId)
 		{
 			window.alert("Admin, click on the person you think has the best caption!");
 			$("img").click(function()
 			{
-				console.log("clicked!");
 				var id = $(this).closest("div").attr("id");
 				window.alert($("#p" + id + " #name").text() + " gets 10 points!");
 				//TO DO: Update score
