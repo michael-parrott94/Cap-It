@@ -35,10 +35,11 @@ $(document).ready(function() {
 		window.alert($('#' + id + ' #name').text() + ' gets 10 points! \n He now has ' 
 			+ score + ' points!');
 
+		window.alert("score = " + score + "\n" + "fb_id = " + playerFBIds[id]);
 		$.post("services.php",
 		{
 			'score': score,
-			'fb_id': playerFBIds[id]
+			'fb_id': playerFBIds[id],
 		});
 	});
 
