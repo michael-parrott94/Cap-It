@@ -27,9 +27,8 @@ $(document).ready(function() {
 		});
 	};
 
-	$('.container_player').click(function (event){
-		var $target = $(event.target);
-		var id = $target.attr('id');
+	$('.container_player').click(function (){
+		var id = $(this).attr('id');
 		window.alert(id);
 		//window.alert($("#p" + id + " #name").text() + " gets 10 points!");
 	});
