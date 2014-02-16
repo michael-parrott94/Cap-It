@@ -46,7 +46,7 @@
       <?php
         for($i = 0; $i < 4; $i++) {
       ?>
-      <div class="container.player" id="p<?php echo $i; ?>"
+      <div class="container_player" id="p<?php echo $i; ?>"
       		style="width:385px;
       				height:96px;
       				position:relative;
