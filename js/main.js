@@ -39,7 +39,7 @@ $(document).ready(function() {
 		{
 			'score': score,
 			'fb_id': playerFBIds[id]
-		} 
+		});
 	});
 
 	// Main looper for every second
