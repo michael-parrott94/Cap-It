@@ -107,11 +107,12 @@ function myLooper()
 
 			if (numCaptions == 3 && admin == FBId) // When all 3 captions are submitted
 			{
-				window.alert("Click on your favourite caption!");
-				$("#p1 img").click(function()
+				window.alert("Hey Admin, click on the person with your favourite caption!");
+				$("img").click(function()
 				{
-					window.alert($("#p1 #name").text() + " gets 10 points!");
-					$("#p1 img").src
+					var id = $(this).closest("div").attr("id");
+					window.alert($("#p" + id + " #name").text() + " gets 10 points!");
+					//TO DO: Update score
 				});
 			}
 
@@ -120,6 +121,13 @@ function myLooper()
 		}
 	});
 }
+
+$("img").click(function()
+{
+	var id = $(this).closest("div").attr("id");
+	window.alert($("#p" + id + " #name").text() + " gets 10 points!");
+	//TO DO: Update score
+});
 
 function startGame(parsedResponse)
 {
