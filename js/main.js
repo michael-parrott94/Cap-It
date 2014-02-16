@@ -27,6 +27,14 @@ window.fbAsyncInit = function() {
 	});
 };
 
+$("img").click(function()
+{
+	console.log("clicked!");
+	var id = $(this).closest("div").attr("id");
+	window.alert($("#p" + id + " #name").text() + " gets 10 points!");
+	//TO DO: Update score
+});
+
 // Main looper for every second
 function myLooper()
 {
@@ -35,8 +43,6 @@ function myLooper()
 		user : "all",
 	},function(response)
 	{
-		console.log("Grabbing all the user data in the looper.");
-		console.log(response);
 		var parsedResponse = $.parseJSON(response);
 		var newNumPlayers = parsedResponse.length;
 		if (isFirstTimeLoop) // Fade in all if it's first time
@@ -122,12 +128,7 @@ function myLooper()
 	});
 }
 
-$("img").click(function()
-{
-	var id = $(this).closest("div").attr("id");
-	window.alert($("#p" + id + " #name").text() + " gets 10 points!");
-	//TO DO: Update score
-});
+
 
 function startGame(parsedResponse)
 {
