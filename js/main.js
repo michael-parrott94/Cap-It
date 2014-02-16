@@ -30,7 +30,7 @@ $(document).ready(function() {
 	$("img").click(function()
 	{
 		var id = $(this).closest("div").attr("id");
-		winder.alert(id);
+		window.alert(id);
 		//window.alert($("#p" + id + " #name").text() + " gets 10 points!");
 	});
 
