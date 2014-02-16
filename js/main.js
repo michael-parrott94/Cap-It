@@ -50,20 +50,20 @@ $(document).ready(function() {
 				numPlayers =  newNumPlayers;
 				for (var i = 0; i < newNumPlayers; i++)
 				{
-					$('#p" + i + " #name').text(parsedResponse[i].name); //name
-					$('#p" + i + " img').attr("src", parsedResponse[i].fb_pp); // profile pic
-					$('#p" + i + " img').attr('height", "85px');
-					$('#p" + i + " img').attr('width", "85px');
+					$('#p' + i + ' #name').text(parsedResponse[i].name); //name
+					$('#p' + i + ' img').attr('src', parsedResponse[i].fb_pp); // profile pic
+					$('#p' + i + ' img').attr('height', '85px');
+					$('#p' + i + ' img').attr('width', '85px');
 					if (i == 0) 
 					{
-						$('#p" + i + " p').text('======ADMIN======'); //caption for the admin
+						$('#p' + i + ' p').text('======ADMIN======'); //caption for the admin
 					}
-					$('#p" + i + " #score').text(parsedResponse[i].scores);//score
+					$('#p' + i + ' #score').text(parsedResponse[i].scores);//score
 
 					// Fade in 
-					$('#p" + i + " #name').hide().fadeIn(4000);
-					$('#p" + i + " img').hide().fadeIn(4000);
-					$('#p" + i + " #score').hide().fadeIn(4000);
+					$('#p' + i + ' #name').hide().fadeIn(4000);
+					$('#p' + i + ' img').hide().fadeIn(4000);
+					$('#p' + i + ' #score').hide().fadeIn(4000);
 				}
 			} 
 			else 
@@ -78,10 +78,10 @@ $(document).ready(function() {
 					gameStarted = false;
 					for (var i = 3; i >= newNumPlayers; i--)
 					{
-						$('#p" + i + " #name').hide();
-						$('#p" + i + " img').hide();
-						$('#p" + i + " p').hide();
-						$('#p" + i + " #score').hide();
+						$('#p' + i + ' #name').hide();
+						$('#p' + i + ' img').hide();
+						$('#p' + i + ' p').hide();
+						$('#p' + i + ' #score').hide();
 					}
 				}
 				if (newNumPlayers > numPlayers) // if there are newly joined players
@@ -89,25 +89,25 @@ $(document).ready(function() {
 					for (var i = numPlayers; i < newNumPlayers; i++)
 					{
 						// Fade in
-						$('#p" + i + " #name').hide().fadeIn(4000);
-						$('#p" + i + " img').hide().fadeIn(4000);
+						$('#p' + i + ' #name').hide().fadeIn(4000);
+						$('#p' + i + ' img').hide().fadeIn(4000);
 					}
 				}
 				for (var i = 0; i < newNumPlayers; i++)
 				{
-					$('#p" + i + " #name').text(parsedResponse[i].name).show(); //name
+					$('#p' + i + ' #name').text(parsedResponse[i].name).show(); //name
 					//profile pic
-					$('#p" + i + " img').attr('src', parsedResponse[i].fb_pp).show();
-					$('#p" + i + " img').attr('height", "85px');
-					$('#p" + i + " img').attr('width", "85px');
+					$('#p' + i + ' img').attr('src', parsedResponse[i].fb_pp).show();
+					$('#p' + i + ' img').attr('height', '85px');
+					$('#p' + i + ' img').attr('width', '85px');
 					if (i == 0) 
 					{
-						$('#p" + i + " p').text('======ADMIN======').show(); //caption for the admin
+						$('#p' + i + ' p').text('======ADMIN======').show(); //caption for the admin
 					} else {
-						$('#p" + i + " p').text(parsedResponse[i].caption_text).show();//caption
+						$('#p' + i + ' p').text(parsedResponse[i].caption_text).show();//caption
 						if (parsedResponse[i].caption_text != "") numCaptions++;
 					}
-					$('#p" + i + " #score').text(parsedResponse[i].scores).show();//score
+					$('#p' + i + ' #score').text(parsedResponse[i].scores).show();//score
 				}
 
 				if (numCaptions == 3) // When all 3 captions are submitted
