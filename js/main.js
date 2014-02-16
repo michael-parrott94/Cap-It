@@ -190,9 +190,9 @@ $(document).ready(function() {
 			var id = 'p' + i;
 			playerFBIds[id] = parsedResponse[i].user_fb_id;
 		}
-		window.alert("p1 = " + playerFBIds['p1'] "/n" + 
-					 "p2 = " + playerFBIds['p2'] "/n" +
-					 "p3 = " + playerFBIds['p3'] "/n" +  )
+		window.alert("p1 = " + playerFBIds['p1'] + "/n" + 
+					 "p2 = " + playerFBIds['p2'] + "/n" +
+					 "p3 = " + playerFBIds['p3']);
 
 		//TO DO: Check if there's already a BIG picture on database
 		FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3D' + admin + '%20ORDER%20BY%20created%20ASC%29%20LIMIT%20100',  function(response) {
