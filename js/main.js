@@ -28,11 +28,6 @@ $(document).ready(function() {
 		});
 	};
 
-	$('.container_player').click(function (){
-		var id = $(this).attr('id');
-		window.alert($("#" + id + " #name").text() + " gets 10 points!");
-	});
-
 	// Main looper for every second
 	function myLooper()
 	{
@@ -126,12 +121,12 @@ $(document).ready(function() {
 		if (admin == FBId)
 		{
 			window.alert("Admin, click on the person you think has the best caption!");
-			$('img').click(function()
-			{
-				var id = $(this).closest("div").attr("id");
-				window.alert($("#p" + id + " #name").text() + " gets 10 points!");
-				//TO DO: Update score
-			});
+				$('.container_player').click(function (){
+					var id = $(this).attr('id');
+					window.alert($('#' + id + ' #name').text() + ' gets 10 points!');
+					//TO DO : update score 
+					looper = setInterval(function(){myLooper()}, 1000);
+				});
 		}
 		else
 		{
@@ -148,7 +143,7 @@ $(document).ready(function() {
 		FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3D' + admin + '%20ORDER%20BY%20created%20ASC%29%20LIMIT%20100',  function(response) {
 			var url = response.data[Math.floor((Math.random()*response.data.length - 1)+1)].src_big;
 			console.log(url);
-			$("#bigPic").attr("src", url);
+			$('#bigPic').attr('src', url);
 		});
 	}
 
