@@ -27,7 +27,7 @@ $(document).ready(function() {
 		});
 	};
 
-	$('.container_player').click(function (event){
+	$('.container player').click(function (event){
 		var $target = $(event.target);
 		var id = $target.attr('id');
 		window.alert(id);
