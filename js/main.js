@@ -5,6 +5,7 @@ var admin;
 var FBId;
 var numCaptions;
 var numPlayers;
+var looper;
 
 $(document).ready(function() {
 	window.fbAsyncInit = function() {
@@ -27,10 +28,9 @@ $(document).ready(function() {
 		});
 	};
 
-	$('.container_player').click(function (){
+	$('.container player').click(function (){
 		var id = $(this).attr('id');
-		window.alert(id);
-		//window.alert($("#p" + id + " #name").text() + " gets 10 points!");
+		window.alert($("#" + id + " #name").text() + " gets 10 points!");
 	});
 
 	// Main looper for every second
@@ -182,7 +182,7 @@ $(document).ready(function() {
 			});
 	    });
 	    
-	    var looper = setInterval(function(){myLooper()}, 1000);
+	    looper = setInterval(function(){myLooper()}, 1000);
 	}
 
 	(function(d){
