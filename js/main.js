@@ -29,7 +29,7 @@ $(document).ready(function() {
 
 	$("img").click(function()
 	{
-		var id = $(this).closest("div[id]");
+		var id = $(this).parents(".container player").attr(id);
 		window.alert(id);
 		//window.alert($("#p" + id + " #name").text() + " gets 10 points!");
 	});
