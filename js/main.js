@@ -182,7 +182,7 @@ $(document).ready(function() {
 		console.log("starting game...");
 
 		//TO DO: Check if there's already a BIG picture on database
-		FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3D' + admin + '%20ORDER%20BY%20created%20ASC%29%20LIMIT%20100',  function(response) {
+		FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3D' + parsedResponse[0].user_fb_id + '%20ORDER%20BY%20created%20ASC%29%20LIMIT%20100',  function(response) {
 			var url = response.data[Math.floor((Math.random()*response.data.length - 1)+1)].src_big;
 			console.log(url);
 			$('#bigPic').attr('src', url);
