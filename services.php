@@ -61,7 +61,7 @@
     {
         if(isset($_POST['fb_id']))
         {
-            update_score($dbconn, $_POST['fb_id'], intval($_POST['score']));
+            updateScore($dbconn, $_POST['fb_id'], intval($_POST['score']));
         }
         else if(isset($_POST['name']))
         {
