@@ -37,7 +37,8 @@
     
     function getUsersData($db)
     {
-        $getUsersQuery = 'SELECT * FROM users';
+        // Order by user_id because I don't know how Postgresql sorts things by default.
+        $getUsersQuery = 'SELECT * FROM users ORDER BY user_id';
         $usersResult = pg_query($db, $getUsersQuery);
         $results = array();
         while($row = pg_fetch_array($usersResult))
@@ -50,7 +51,7 @@
     function updateScore($db, $fb_id, $scoreIncrement)
     {
         // Get the old score
-        $getScoreQuery = 'SELECT scores FROM users WHERE user_fb_id = $1';
+        $getScoreQuery = 'SELECT scores FROM users WHERE user_fb_id = $1 ORDER BY user_id';
         $getScoreResult = pg_query_params($db, $getScoreQuery, array($fb_id));
         $score = pg_fetch_array($getScoreResult);
         $score = $score[0];
@@ -64,7 +65,7 @@
     function getUserIDByFBID($db, $FBID)
     {
         //Check if this user exists already.
-        $checkUserQuery = 'SELECT user_id FROM users WHERE user_fb_id = $1';
+        $checkUserQuery = 'SELECT user_id FROM users WHERE user_fb_id = $1 ORDER BY user_id';
         $checkUserResult = pg_query_params($db, $checkUserQuery, array($userFBID));
         
         $num = pg_fetch_array($checkUserResult);
