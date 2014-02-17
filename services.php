@@ -172,9 +172,11 @@
                 $prepareAddUser = pg_prepare($dbconn, 'user_add_', $addUserQuery);
                 $addUserResult = pg_execute($dbconn, 'user_add_', array($userFBID, $userName, $userPP));
                 
-                if($addUserResult == False)
+                if($addUserResult === False)
                 {
-                    echo 'user addition failed';
+                    echo 'User addition failed:\n';
+                    echo 'Last error: ' . pg_last_error($dbconn) . '\n';
+                    echo 'Last notice: ' . pg_last_notice($dbconn) . '\n';
                 }
                 else
                 {
