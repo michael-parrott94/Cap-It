@@ -36,7 +36,7 @@ $(document).ready(function() {
 		window.alert("score = " + score + "\n" + "fb_id = " + playerFBIds[id]);
 		$.post("services.php",
 		{
-			'score': score,
+			'score': 10,
 			'fb_id': playerFBIds[id],
 		});
 	});
