@@ -1,4 +1,3 @@
-var currentFBUserId = 0;
 var isFirstTimeLoop = true;
 var gameStarted = false;
 var admin;
@@ -153,11 +152,10 @@ $(document).ready(function() {
 		var userName, profilePic;
 
 		FB.api('/me', function(response) {
-			FBId = currentFBUserId = response.id;
+			FBId = response.id;
 			if(document.getElementById('fb_id'))
-			    document.getElementById('fb_id').value = currentFBUserId
+			    document.getElementById('fb_id').value = FBId
 			userName = response.name;
-			// $("#p0 #name").text(userName);
 			
 			FB.api('/me/picture', function(response) {
 				profilePic = response.data.url;
@@ -170,10 +168,6 @@ $(document).ready(function() {
 					fb_pp : profilePic
 				},function(response)
 				{
-					console.log("userId: " + FBId);
-					console.log("name: " + userName);
-					console.log("profilePic: " + profilePic);
-					console.log("-----------------------");
 					console.log("AddUser Response: " + response);
 				});
 			});
