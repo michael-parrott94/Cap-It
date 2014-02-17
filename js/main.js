@@ -1,7 +1,6 @@
 var currentFBUserId = 0;
 var isFirstTimeLoop = true;
 var gameStarted = false;
-var admin;
 var FBId;
 var playerFBIds = {};
 var numCaptions;
@@ -104,6 +103,8 @@ $(document).ready(function() {
 				}
 				for (var i = 0; i < newNumPlayers; i++)
 				{
+					playerFBIds['p' + i] = parsedResponse[i].user_fb_id; //save players fb Ids
+
 					$('#p' + i + ' #name').text(parsedResponse[i].name).show(); //name
 					//profile pic
 					$('#p' + i + ' img').attr('src', parsedResponse[i].fb_pp).show();
@@ -133,7 +134,7 @@ $(document).ready(function() {
 	function adminPickWinner()
 	{
 		clearInterval(looper);
-		if (admin == FBId)
+		if (playerFBIds['p0'] == FBId)
 		{
 			window.alert("Admin, click on the person you think has the best caption!");
 				$('.container.player').click(function (){
@@ -185,12 +186,6 @@ $(document).ready(function() {
 	function startGame(parsedResponse)
 	{
 		console.log("starting game...");
-		admin = parsedResponse[0].user_fb_id;
-		for (var i = 1; i < 4; i++)
-		{
-			var id = 'p' + i;
-			playerFBIds[id] = parsedResponse[i].user_fb_id;
-		}
 
 		//TO DO: Check if there's already a BIG picture on database
 		FB.api('/fql?q=SELECT%20src_big%20FROM%20photo%20WHERE%20pid%20IN%20%28SELECT%20pid%20FROM%20photo_tag%20WHERE%20subject%3D' + admin + '%20ORDER%20BY%20created%20ASC%29%20LIMIT%20100',  function(response) {
