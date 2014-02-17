@@ -27,19 +27,7 @@ $(document).ready(function() {
 		});
 	};
 
-	$('.container.player').click(function (){
-		var id = $(this).attr('id');
-		var score = parseInt($('#' + id + ' #score').text()) + 10;
-		window.alert($('#' + id + ' #name').text() + ' gets 10 points! \n He now has ' 
-			+ score + ' points!');
-
-		window.alert("score = " + score + "\n" + "fb_id = " + playerFBIds[id]);
-		$.post("services.php",
-		{
-			'score': 10,
-			'fb_id': playerFBIds[id],
-		});
-	});
+	
 
 	// Main looper for every second
 	function myLooper()
@@ -136,12 +124,19 @@ $(document).ready(function() {
 		if (playerFBIds['p0'] == FBId)
 		{
 			window.alert("Admin, click on the person you think has the best caption!");
-				$('.container.player').click(function (){
-					var id = $(this).attr('id');
-					window.alert($('#' + id + ' #name').text() + ' gets 10 points!');
-					//TO DO : update score 
-					looper = setInterval(function(){myLooper()}, 1000);
+			$('.container.player').click(function (){
+				var id = $(this).attr('id');
+				var score = parseInt($('#' + id + ' #score').text()) + 10;
+				window.alert($('#' + id + ' #name').text() + ' gets 10 points! \n He now has ' 
+					+ score + ' points!');
+
+				window.alert("score = " + score + "\n" + "fb_id = " + playerFBIds[id]);
+				$.post("services.php",
+				{
+					'score': 10,
+					'fb_id': playerFBIds[id],
 				});
+			});
 		}
 		else
 		{
