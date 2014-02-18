@@ -102,11 +102,12 @@ $(document).ready(function() {
 						$('#p' + i + ' p').text('======ADMIN======').show(); //caption for the admin
 					} else {
 						$('#p' + i + ' p').text(parsedResponse[i].caption_text).show();//caption
-						if (parsedResponse[i].caption_text != "") numCaptions++;
+						if (parsedResponse[i].caption_text !== "") numCaptions++;
 					}
 					$('#p' + i + ' #score').text(parsedResponse[i].scores).show();//score
 				}
 
+				console.log("Numcaptions = " + numCaptions)
 				if (numCaptions == 3) // When all 3 captions are submitted
 				{
 					adminPickWinner();
@@ -120,6 +121,11 @@ $(document).ready(function() {
 
 	function adminPickWinner()
 	{
+		//CLEAR ALL THE CAPTIONS
+		isFirstTimeLoop = true;
+		gameStarted = false;
+		numCaptions = 0;
+		console.log("clearing looper");
 		clearInterval(looper);
 		if (playerFBIds['p0'] == FBId)
 		{
@@ -127,15 +133,23 @@ $(document).ready(function() {
 			$('.container.player').click(function (){
 				var id = $(this).attr('id');
 				var score = parseInt($('#' + id + ' #score').text()) + 10;
+
 				window.alert($('#' + id + ' #name').text() + ' gets 10 points! \n He now has ' 
 					+ score + ' points!');
-
 				window.alert("score = " + score + "\n" + "fb_id = " + playerFBIds[id]);
+
 				$.post("services.php",
 				{
 					'score': 10,
 					'fb_id': playerFBIds[id],
+				}, function(response) {
+					setTimeout(function () 
+					{
+						console.log("restarting Looper");
+						//looper = setInterval(function(){myLooper()}, 1000);
+					}, 5000);
 				});
+				
 			});
 		}
 		else
