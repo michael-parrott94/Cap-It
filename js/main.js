@@ -121,7 +121,6 @@ $(document).ready(function() {
 
 	function adminPickWinner()
 	{
-		//CLEAR ALL THE CAPTIONS
 		isFirstTimeLoop = true;
 		gameStarted = false;
 		numCaptions = 0;
@@ -137,6 +136,11 @@ $(document).ready(function() {
 				window.alert($('#' + id + ' #name').text() + ' gets 10 points! \n He now has ' 
 					+ score + ' points!');
 				window.alert("score = " + score + "\n" + "fb_id = " + playerFBIds[id]);
+
+				$.post("services.php",
+				{
+					caption: 'clear'
+				});
 
 				$.post("services.php",
 				{
