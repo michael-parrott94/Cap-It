@@ -39,6 +39,10 @@
             $row = pg_fetch_array($getCaptionResult);
             echo $row['caption_text'];
         }
+        else if($_POST['caption'] == 'clear')
+        {
+          clearCaptions($dbconn); 
+        }
     }
     
     if(isset($_POST['picture']))

@@ -74,4 +74,14 @@
             
         }
     }
+    
+    /**
+     * Remove all the captions (make them the empty string)
+     * TODO: add ability to do this only for a specific group
+     */
+    function clearCaptions($db)
+    {
+      $clearCaptionQuery = "UPDATE users SET caption_text = ''";
+      $clearCaptionResult = pg_query($db, $clearCaptionQuery);
+    }
 ?>
