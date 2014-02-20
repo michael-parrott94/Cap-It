@@ -13,22 +13,19 @@
     <script src="js/main.js"></script>
     
  
-    <h1 style="margin-left:355px; margin-top:100px; color:white"><big><big><big>JUST CAP-IT DOE</big></big></big></h1>
-    <div class="nav-container horizontal" style="margin-left:360px; margin-top: 0px">
+    <h1 style="margin-left:355px; color:white"><big><big><big>JUST CAP-IT DOE</big></big></big></h1>
+    <div class="nav-container horizontal" style="clear:both; height: 50px;">
       <div class="link_link" id="menu_1" style="float:left">
-        <a href="index.php" target="" name="benhulse"  style="color:white">Home</a>
+        <a href="index.php" style="color:white">Home</a>
       </div>
       <div class="link_link" id="menu_3" style="float:left; margin-left: 10px">
-      	<a href="about.php" target="" name="benhulse"  style="color:white">About Cap-It</a>
+      	<a href="about.php" style="color:white">About Cap-It</a>
       </div>
     </div>
     <div class="container" 
       	style="width:1200px;
       			height:600px;
       			position: relative;
-      			margin-left: 360px;
-      			margin-top: 40px;
-      			vertical-align: middle;
       			border:1px solid #000;
       			background:white">
       	
@@ -41,13 +38,13 @@
       			vertical-align: middle;
       			border:1px solid #000;
       			background:BLACK">
-        <img id="bigPic" style="display:block; position:relative; margin:auto; vertical-align:middle; horizontal-align:middle; height:100%; padding-left:0 auto; padding-right:0 auto">
+        <img id="bigPic" style="display:block; position:relative; margin:auto; vertical-align:middle; horizontal-align:middle; height:100%;">
       </div>
       <?php
         for($i = 0; $i < 4; $i++) {
       ?>
       <div class="container player" id="p<?php echo $i; ?>"
-      		style="width:385px;
+      		style="width:355px;
       				height:96px;
       				position:relative;
       				float:left;
@@ -64,9 +61,9 @@
       	</div>
       	<div class="container" 
       		style="position:relative;
-      					 width:285px;
+      					 width:225px;
       					 height:50px;
-      					 margin-left: 95px;
+      					 margin-left: 105px;
       					 margin-top: -50px;
       					 background:WHITE"><!--Most recent caption-->
       	  <p id="caption"></p>
@@ -83,7 +80,7 @@
       		style="position:relative;
       					 width:50px;
       					 height:30px;
-      					 margin-left: 330px;
+      					 margin-left: 280px;
       					 margin-top: -30px;
       					 background:yellow"><!--Points Count-->
       	  <p id="score"></p>
