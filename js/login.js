@@ -29,17 +29,51 @@ window.fbAsyncInit = function() {
 	$("p").hide().fadeIn(9000);
 }
 
+function currentUserId()
+{
+	var userId = "0";
+
+	FB.api('/me', {fields: 'id'}, function(response){
+		if(!response || response.error)
+		{
+			alert('cannot find user id');
+		}else{
+			userId = response.id;
+			console.log("UserIdResp: " + response.id);
+		}
+	});
+
+	return userId;
+}
+
 // When "New Game" button is pushed. Takes you to the main game screen
 function loadGamePage() {
 	$.post("services.php",
 	{
 		user : "all"
-	},function(response)
+	},
+  function(response)
 	{
+    console.log(response);
 		console.log($.parseJSON(response).length);
 		if ($.parseJSON(response).length == 4)
 		{
-			window.alert("OOPS. there are bare people in there.");
+      // Check to see if the current user is acutally in the room.
+      userID = currentUserId();
+      $.post("services.php",
+      {
+        user: 'inGame',
+        fb_id: userID
+      },
+      function(inGameResponse)
+      {
+        console.log(inGameResponse);
+        console.log(typeof inGameResponse);
+        if(inGameResponse === 'true')
+          window.alert("Can't go in");
+        else
+          location.href = "captionitpage.php"; 
+      });
 		} else {
 			location.href = "captionitpage.php";
 		}

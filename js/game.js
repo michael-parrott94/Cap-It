@@ -168,7 +168,7 @@ function retrieveUsers(playerNumber)
 		},function(info){
 			var obj = jQuery.parseJSON( info );
 			playerObj = obj[playerNumber-1];
-		}
+		});
 
 	return playerObj;
 }

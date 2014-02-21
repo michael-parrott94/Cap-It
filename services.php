@@ -197,6 +197,23 @@
             $results = getUsersData($dbconn);
             echo json_encode($results);
         }
+        else if($_POST['user'] == 'inGame')
+        {
+          $userFBID = $_POST['fb_id'];
+          $checkUserQuery = 'SELECT COUNT(*) FROM users WHERE user_fb_id = $1';
+          $preparedUserQuery = pg_prepare($dbconn, "check_user_in_game", $checkUserQuery);
+          $checkUserResult = pg_execute($dbconn, "check_user_in_game", array($userFBID));
+
+          $num = pg_fetch_array($checkUserResult);
+          if(intval($num[0]) > 0)
+          {
+            echo json_encode(true);
+          }
+          else
+          {
+            echo json_encode(false);
+          }
+        }
     }
     
     // Close the connection
