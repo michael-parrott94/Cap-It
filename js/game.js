@@ -60,34 +60,31 @@ $(document).ready(function()
       console.log('Good to see you, ' + response.name + '.');
     });
   }
-
-	}
-
+}
 
 
 
-$("#postButton").click(function(){
+
+$("#postButton").click(function() {
 
 	var body = 'Trying Facebook JS SDK documentation';
-FB.api('/me/feed', 'post', { message: body }, function(response) {
-  if (!response || response.error) {
-    alert('Error occured' + response.error.message);
-  } else {
-    alert('Post ID: ' + response.id);
-  }
-});
+	FB.api('/me/feed', 'post', { message: body }, function(response) {
+  		if (!response || response.error) {
+    		alert('Error occured' + response.error.message);
+  		} else {
+    		alert('Post ID: ' + response.id);
+ 		}
+	});
 });
 
 
-function currentUserName()
-{
+function currentUserName() {
 	var name = "Unknown";
 
-	FB.api('/me', {fields: 'name'}, function(response){
-		if(!response || response.error)
-		{
+	FB.api('/me', {fields: 'name'}, function(response) {
+		if(!response || response.error) {
 			alert('cannot find user name');
-		}else{
+		} else {
 			name = response.name;
 			console.log("UserNameResp: " + response.name);
 		}
@@ -96,15 +93,13 @@ function currentUserName()
 	return name;
 }	
 
-function currentUserId()
-{
+function currentUserId() {
 	var userId = "0";
 
 	FB.api('/me', {fields: 'id'}, function(response){
-		if(!response || response.error)
-		{
+		if(!response || response.error) {
 			alert('cannot find user id');
-		}else{
+		} else {
 			userId = response.id;
 			console.log("UserIdResp: " + response.id);
 		}
@@ -113,15 +108,13 @@ function currentUserId()
 	return userId;
 }
 
-function currentUserPicture()
-{
+function currentUserPicture() {
 	var picture;
 
-	FB.api('/me/picture', function(response){
-		if(!response || response.error)
-		{
+	FB.api('/me/picture', function(response) {
+		if(!response || response.error) {
 			alert('cannot find user picture');
-		}else{
+		} else {
 			picture = response.data.url;
 			console.log("UserIdResp: " + response.data.url);
 		}
@@ -130,22 +123,19 @@ function currentUserPicture()
 	return picture;
 }
 
-function addUserInfo()
-{
+function addUserInfo() {
 	var userName = currentUserName();
 	var userId = currentUserId();
 	var userPicture = currentUserPicture();
 
-	if(name && name != "Unknown")
-	{
+	if(name && name != "Unknown") {
 		$.post("services.php",
 		{
 			user : "add",
 			fb_id : userId,
 			fb_name : userName,
 			fb_pp : userPicture
-		},function(response)
-		{
+		}, function(response) {
 			$("p").text(response);
 			console.log("AddUser Response: " + response);
 		});
@@ -153,19 +143,18 @@ function addUserInfo()
 }
 
 
-$("#storeName").click(function(){
+$("#storeName").click(function() {
 	addUserInfo();
 });
 
 
-function retrieveUsers(playerNumber)
-{
+function retrieveUsers(playerNumber) {
 	var playerObj;
 
 	$.post("services.php",
 		{
 			user : "all",
-		},function(info){
+		}, function(info) {
 			var obj = jQuery.parseJSON( info );
 			playerObj = obj[playerNumber-1];
 		});
