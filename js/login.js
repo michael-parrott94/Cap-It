@@ -26,7 +26,7 @@ window.fbAsyncInit = function() {
 	$("#menu_1").hide().fadeIn(6000);
 	$("#menu_2").hide().fadeIn(7000);
 	$("#menu_3").hide().fadeIn(8000);
-	$("p").hide().fadeIn(9000);
+	$("h2").hide().fadeIn(9000);
 }
 
 function currentUserId()
