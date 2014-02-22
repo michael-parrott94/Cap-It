@@ -8,7 +8,7 @@
  </head>
 
  <body>
-    <div style="padding-left:300px" class="siteBackground">
+    <div class="container"> 
         <?php include 'Templates/header.php'; ?>
 	    <dl>
             <dt style="width:580px;" class="textColour">What's Cap-It?</dt>

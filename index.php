@@ -11,7 +11,7 @@
     <script src="js/login.js"></script>
 </head>
 
-<body style="background:#4C4646">
+<body>
     <div id="fb-root"></div>
     <div class="container" style="text-align: center">
         <h1 class="textColour" style="display: none;">JUST CAP-IT DOE</h1>

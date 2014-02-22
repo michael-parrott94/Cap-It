@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/styles.css">
   </head>
   
-  <body style="background:#4C4646">
+  <body>
     <div id="fb-root"></div>
     <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
     <script src="js/main.js"></script>
