@@ -57,7 +57,8 @@ $(document).ready(function() {
 					// 4 players have joined (start game)
 					startGame(parsedResponse);
 					GAME_STARTED = true;
-				} else if (newNumPlayers < 4 && GAME_STARTED) {
+				} 
+				if (newNumPlayers < 4 && GAME_STARTED) {
 					// remove name/pic/etc when there are less players
 					GAME_STARTED = false;
 					for (var i = 3; i >= newNumPlayers; i--) {
