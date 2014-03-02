@@ -28,7 +28,6 @@ $(document).ready(function() {
 	};
 
 	
-
 	// Main LOOPER for every second
 	function myLooper() {
 		$.post("services.php", { user : "all"}, function(response) {
@@ -93,7 +92,7 @@ $(document).ready(function() {
 					$('#p' + i + ' #score').text(parsedResponse[i].scores).show();//score
 				}
 
-				console.log("NUM_CAPTIONS = " + NUM_CAPTIONS)
+				//console.log("NUM_CAPTIONS = " + NUM_CAPTIONS);
 				if (NUM_CAPTIONS == 3) {
 					// When all 3 captions are submitted
 					adminPickWinner();
@@ -112,14 +111,13 @@ $(document).ready(function() {
 		console.log("clearing LOOPER");
 		clearInterval(LOOPER);
 		if (PLAYER_FB_IDS['p0'] == FBID) {
-			window.alert("Admin, click on the person you think has the best caption!");
-			$('.container.player').click(function () {
+			$('.console').html( $('.console').html() + "<br>=> Admin, click on the person you think has the best caption!");
+			$('.container.player').on("click", function () {
 				var id = $(this).attr('id');
 				var score = parseInt($('#' + id + ' #score').text()) + 10;
 
-				window.alert($('#' + id + ' #name').text() + ' gets 10 points! \n He now has ' 
-					+ score + ' points!');
-				window.alert("score = " + score + "\n" + "fb_id = " + PLAYER_FB_IDS[id]);
+				$('.console').html( $('.console').html() + "<br>=> " + $('#' + id + ' #name').html() + " gets 10 points! He now has " 
+					+ score + " points! <br>score = " + score + ", " + "fb_id = " + PLAYER_FB_IDS[id]);
 
 				$.post("services.php", { caption: 'clear' }); //clear all captions
 
@@ -130,13 +128,13 @@ $(document).ready(function() {
 				}, function(response) {
 					setTimeout(function () {
 						console.log("restarting LOOPER");
-						//LOOPER = setInterval(function(){myLooper()}, 1000);
+						LOOPER = setInterval(function(){myLooper()}, 1000);
 					}, 5000);
 				});
 				
 			});
 		} else {
-			window.alert("It's time for admin to pick who the winner is!");
+			$('.console').html( $('.console').html() + "<br>=> It's time for admin to pick who the winner is!");
 		}
 	}
 

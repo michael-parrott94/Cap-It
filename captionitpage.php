@@ -108,6 +108,19 @@
       		
       </div>
     </div>
+
+    <div class="console" 
+          style="border:1px solid red;
+                background:white;
+                width:50%;
+                height:100px;
+                display:box;
+                box-orient:horizontal;
+                box-pack:center;
+                box-align:center;
+                overflow-y: scroll">
+
+    </div>
     <script>
       // this is the id of the submit button
       $("#submitButton").click(function(e) {
