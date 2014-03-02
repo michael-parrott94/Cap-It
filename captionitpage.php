@@ -12,95 +12,34 @@
     <script src="http://code.jquery.com/jquery-2.1.0.js"></script>
     <script src="js/main.js"></script>
     
- 
-    <h1 style="margin-left:355px; color:white"><big><big><big>JUST CAP-IT DOE</big></big></big></h1>
-    <div class="nav-container horizontal" style="clear:both; height: 50px;">
-      <div class="link_link" id="menu_1" style="float:left">
-        <a href="index.php" style="color:white">Home</a>
-      </div>
-      <div class="link_link" id="menu_3" style="float:left; margin-left: 10px">
-      	<a href="about.php" style="color:white">About Cap-It</a>
-      </div>
-    </div>
-    <div class="container" 
-      	style="width:1200px;
-      			height:600px;
-      			position: relative;
-      			border:1px solid #000;
-      			background:white">
-      	
-      <div class="container"
-      		style="width:770px;
-      			height:570px;
-      			position: relative;
-      			margin-left: 15px;
-      			margin-top: 15px;
-      			vertical-align: middle;
-      			border:1px solid #000;
-      			background:BLACK">
-        <img id="bigPic" style="display:block; position:relative; margin:auto; vertical-align:middle; horizontal-align:middle; height:100%;">
-      </div>
-      <?php
-        for($i = 0; $i < 4; $i++) {
-      ?>
-      <div class="container player" id="p<?php echo $i; ?>"
-      		style="width:355px;
-      				height:96px;
-      				position:relative;
-      				float:left;
-      				margin-left:800px;
-      				margin-top:<?php echo (-570 + $i * 110);  ?>px;">
-        <div class="container" 
-      	  style="position:relative;
-      					 width:85px;
-      					 height:85px;
-      					 margin-left: 5px;
-      					 margin-top: 5px;
-      					 background:WHITE">
-      	  <img><!--PROFILE PICTURE HERE-->
-      	</div>
-      	<div class="container" 
-      		style="position:relative;
-      					 width:225px;
-      					 height:50px;
-      					 margin-left: 105px;
-      					 margin-top: -50px;
-      					 background:WHITE"><!--Most recent caption-->
-      	  <p id="caption"></p>
-      	</div>
-      	<div class="container" 
-      		style="position:relative;
-      					 width:200px;
-      					 height:30px;
-      					 margin-left: 95px;
-      					 margin-top: -85px;"><!--Player Name-->
-      	  <font face="century gothic" size="3" id="name"></font>
-      	</div>
-      	<div class="container" 
-      		style="position:relative;
-      					 width:50px;
-      					 height:30px;
-      					 margin-left: 280px;
-      					 margin-top: -30px;
-      					 background:yellow"><!--Points Count-->
-      	  <p id="score"></p>
-      	</div>
-      </div>
-      <? } // For loop ?>
-      <div class="container"
-      		style="width:385px;
-      				height:130px;
-      				position:relative;
-      				float:left;
-      				margin-left:800px;
-      				margin-top:-130px;
+    <div class="container">
+        <header> 
+            <h1 class="textColour">Just Cap It</h1>
+            <ul class="list-inline">
+                <li id="menu_1"><a href="index.php">Home</a></li>
+                <li id="menu_3"><a href="about.php">About</a></li>
+            </ul>
+        </header>
+        <div class="row" style="height: 700px; background-color: white">
+            <div class="col-md-8" style="background-color: black; height: 680px; margin: 5px; box-sizing: border-box;">
+                <img id="bigPic" style="display: block; margin: 0 auto"></img>
+            </div>
+            <div class="col-md-3">
+            <?php for($i = 0; $i < 4; $i++) { ?>
+                <div id="p<?php echo $i; ?>" style="background-color: #2B547E; height: 120px; clear:both; margin-bottom: 30px;">
+                    <img style="float:left;"/> 
+                    <font id="name" style="background-color: orange;"></font>
+                    <p id="score" style="background-color: yellow"></p>
+                    <p id="caption" style="height: 50px; background-color: white; margin: 0px 2px;">Content</p>
+                </div>
+            <?php } ?>
+           <div class="container"
+      		style="width:305px;
+      				height:120px;
       				background:#2B547E">
       		<form id="captionSubmit" method="post">
       			<textarea rows="3" cols="50" id="user_caption" name="user_caption" placeholder="Caption..." align="top" maxlength="180"
-      				style="position:relative;
-      					margin-left:5px;
-      					margin-top:5px;
-      					height:110px;
+      				style="height:110px;
       					width:360px"></textarea>
       		<input type="submit" id="submitButton" value="submit"/>
       		<input type="hidden" id="fb_id" name="fb_id" value="" />
@@ -123,7 +62,10 @@
         e.preventDefault(); // avoid to execute the actual submit of the form.
       });
  
-    </script>
+    </script> 
+            </div>
+        </div>
+    </div>
   </body>
 </html>
  

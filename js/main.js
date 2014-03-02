@@ -40,8 +40,6 @@ $(document).ready(function() {
 				for (var i = 0; i < newNumPlayers; i++) {
 					$('#p' + i + ' #name').text(parsedResponse[i].name); //name
 					$('#p' + i + ' img').attr('src', parsedResponse[i].fb_pp); // profile pic
-					$('#p' + i + ' img').attr('height', '85px');
-					$('#p' + i + ' img').attr('width', '85px');
 					if (i == 0) {
 						$('#p' + i + ' p').text('======ADMIN======'); //caption for the admin
 					}
