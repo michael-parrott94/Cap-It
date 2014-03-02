@@ -58,7 +58,6 @@
                 box-pack:center;
                 box-align:center;
                 overflow-y: scroll">
-
     </div>
     <script>
       // this is the id of the submit button
