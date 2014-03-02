@@ -59,7 +59,7 @@ function loadGamePage() {
       		}, function(inGameResponse) {
         		console.log(inGameResponse);
         		console.log(typeof inGameResponse);
-        		if(inGameResponse === 'true')
+                if(inGameResponse === 'true')
           			window.alert("Can't go in");
         		else
           			location.href = "captionitpage.php"; 

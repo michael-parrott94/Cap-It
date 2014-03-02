@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>CAP-IT</title>
+    <title>Cap It</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
@@ -13,13 +13,13 @@
 
 <body>
     <div id="fb-root"></div>
-    <div class="container" style="text-align: center">
+    <div class="container text-center">
         <h1 class="textColour" style="display: none;">JUST CAP-IT DOE</h1>
         <h2 class="textColour" style="display:none;">
             Words with friends, draw my thing, and cards against humanity just had a baby.
         </h2>
-        <div class="nav-container horizontal" style="position:relative;">
-            <ul> 
+        <div class="nav-container horizontal"> 
+            <ul class="list-unstyled"> 
                 <li id="menu_0">
                     <a href="" onclick="loadGamePage(); return false;" class="textColour">New Game</a>
                 </li>
