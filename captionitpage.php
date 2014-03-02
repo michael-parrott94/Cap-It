@@ -26,7 +26,7 @@
             </div>
             <div class="col-md-3">
             <?php for($i = 0; $i < 4; $i++) { ?>
-                <div id="p<?php echo $i; ?>" style="background-color: #2B547E; height: 120px; clear:both; margin-bottom: 30px;">
+                <div id="p<?php echo $i; ?>" style="background-color: #2B547E; height: 120px; clear:both; margin-bottom: 30px;" style="player">
                     <img style="float:left;"/> 
                     <font id="name" style="background-color: orange;"></font>
                     <p id="score" style="background-color: yellow"></p>
