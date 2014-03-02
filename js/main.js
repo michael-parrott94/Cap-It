@@ -27,7 +27,6 @@ $(document).ready(function() {
 		});
 	};
 
-	
 	// Main LOOPER for every second
 	function myLooper() {
 		$.post("services.php", { user : "all"}, function(response) {
@@ -110,7 +109,7 @@ $(document).ready(function() {
 		clearInterval(LOOPER);
 		if (PLAYER_FB_IDS['p0'] == FBID) {
 			$('.console').html( $('.console').html() + "<br>=> Admin, click on the person you think has the best caption!");
-			$('.container .player').on("click", function () {
+			$('.container .player').one("click", function () {
 				var id = $(this).attr('id');
 				var score = parseInt($('#' + id + ' #score').text()) + 10;
 
@@ -125,6 +124,7 @@ $(document).ready(function() {
 					'fb_id': PLAYER_FB_IDS[id] 
 				}, function(response) {
 					setTimeout(function () {
+						$('.container .player').unbind();
 						console.log("restarting LOOPER");
 						LOOPER = setInterval(function(){myLooper()}, 1000);
 					}, 5000);
