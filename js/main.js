@@ -108,19 +108,19 @@ $(document).ready(function() {
 		console.log("clearing LOOPER");
 		clearInterval(LOOPER);
 		if (PLAYER_FB_IDS['p0'] == FBID) {
-			$('.console').html( $('.console').html() + "<br>=> Admin, click on the person you think has the best caption!");
+			postConsole("Admin, click on the person you think has the best caption!");
 			$('.container .player').one("click", function () {
 				var id = $(this).attr('id');
 				var score = parseInt($('#' + id + ' #score').text()) + 10;
 
-				$('.console').html( $('.console').html() + "<br>=> " + $('#' + id + ' #name').html() + " gets 10 points! He now has " 
+				postConsole($('#' + id + ' #name').html() + " gets 10 points! He now has " 
 					+ score + " points! <br>score = " + score + ", " + "fb_id = " + PLAYER_FB_IDS[id]);
 
 				$.post("services.php", { caption: 'clear' }); //clear all captions
 
 				$.post("services.php", 
 				{ 
-					'score': 10, 
+					'score': 10,
 					'fb_id': PLAYER_FB_IDS[id] 
 				}, function(response) {
 					setTimeout(function () {
@@ -132,7 +132,7 @@ $(document).ready(function() {
 				
 			});
 		} else {
-			$('.console').html( $('.console').html() + "<br>=> It's time for admin to pick who the winner is!");
+			postConsole("It's time for admin to pick who the winner is!");
 		}
 	}
 
@@ -174,6 +174,11 @@ $(document).ready(function() {
 			console.log(url);
 			$('#bigPic').attr('src', url);
 		});
+	}
+
+	function postConsole(message) {
+		$('.console').html( $('.console').html() + "<br>=> " + message);
+		$('.console').animate({ scrollTop: $(document).height() }, "slow"); 
 	}
 
 	(function(d) {
