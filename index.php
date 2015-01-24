@@ -14,7 +14,7 @@
 <body>
     <div id="fb-root"></div>
     <div class="container text-center">
-        <h1 class="textColour" style="display: none;">JUST CAP-IT DOE</h1>
+        <h1 class="textColour" style="display: none;">Cap It</h1>
         <h2 class="textColour" style="display:none;">
             Words with friends, draw my thing, and cards against humanity just had a baby.
         </h2>
