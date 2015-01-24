@@ -9,7 +9,6 @@
 
  <body>
     <div class="container"> 
-        <?php include 'Templates/header.php'; ?>
 	    <dl>
             <dt style="width:580px;" class="textColour">What's Cap-It?</dt>
 	        <dd class="textColour" >Cap-It is the product of an epic morphism between Cards Against Humanity, Draw Something, and Words with Friends.</dd>
@@ -28,7 +27,6 @@
 	        <dd class="textColour" >Samuel "Wing Man" Yuen</dd>
 	        <dd class="textColour" >Si Te "King of the Crisp" Feng</dd>
         </dl>
-        <?php echo include 'Templates/footer.php'; ?>
     </div>
  </body>
  </html>
