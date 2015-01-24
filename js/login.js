@@ -62,10 +62,10 @@ function loadGamePage() {
                 if(inGameResponse === 'true')
           			window.alert("Can't go in");
         		else
-          			location.href = "captionitpage.php"; 
+          			location.href = "capit.php"; 
       		});
 		} else {
-			location.href = "captionitpage.php";
+			location.href = "capit.php";
 		}
 	});
 }
